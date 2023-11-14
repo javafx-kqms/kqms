@@ -14,8 +14,8 @@ public class SearchPage implements View{
 
         @Override
         public void start(Stage stage) throws Exception {
-            Button button9 = new Button("查询学生信息");
-            Button button10 = new Button("查询缺课信息");
+            Button button = new Button("查询学生信息");
+            Button button1 = new Button("查询缺课信息");
 
             Label label3 = new Label("查询学生信息");
             Label label4 = new Label("查询缺课信息");
@@ -33,10 +33,10 @@ public class SearchPage implements View{
             t3.setLayoutX(410);t3.setLayoutY(100);
             t4.setLayoutX(530);t4.setLayoutY(100);
             t5.setLayoutX(650);t5.setLayoutY(100);
-            button9.setLayoutX(770);button9.setLayoutY(100);
+            button.setLayoutX(770);button.setLayoutY(100);
 
-            searchPane.getChildren().addAll(label3,t1,t2,t3,t4,t5,button9);
-            button9.setOnAction(e->{
+            searchPane.getChildren().addAll(label3,t1,t2,t3,t4,t5,button);
+            button.setOnAction(e->{
                 System.out.println("查询成功！");
             });
 
@@ -47,10 +47,10 @@ public class SearchPage implements View{
             label4.setLayoutX(50);label4.setLayoutY(200);
             t11.setLayoutX(170);t11.setLayoutY(200);
             t22.setLayoutX(290);t22.setLayoutY(200);
-            button10.setLayoutX(410);button10.setLayoutY(200);
+            button1.setLayoutX(410);button1.setLayoutY(200);
 
-            searchPane.getChildren().addAll(label4,t11,t22,button10);
-            button10.setOnAction(e->{
+            searchPane.getChildren().addAll(label4,t11,t22,button1);
+            button1.setOnAction(e->{
                 System.out.println("查询成功！");
             });
         }

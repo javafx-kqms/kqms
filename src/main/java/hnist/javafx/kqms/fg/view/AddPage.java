@@ -18,12 +18,12 @@ public class AddPage implements View{
         @Override
         public void start(Stage stage) throws Exception {
 
-            Label label3 = new Label("请选择添加类别");
-            Label label4 = new Label("请输入信息");
-            Button button9 = new Button("学生信息");
-            Button button10 = new Button("缺课信息");
-            Button button11 = new Button("添加学生信息");
-            Button button12 = new Button("添加缺课信息");
+            Label label1 = new Label("请选择添加类别");
+            Label label2 = new Label("请输入信息");
+            Button button = new Button("学生信息");
+            Button button1 = new Button("缺课信息");
+            Button button2 = new Button("添加学生信息");
+            Button button3 = new Button("添加缺课信息");
 
             TextField t1 = new TextField();t1.setPromptText("学号");
             TextField t2 = new TextField();t2.setPromptText("姓名");
@@ -42,23 +42,23 @@ public class AddPage implements View{
             ComboBox<String> comboBox = new ComboBox<>(options);
             comboBox.setPromptText("选择缺课类型");
 
-            label3.setLayoutX(50);label3.setLayoutY(50);
-            button9.setLayoutX(170);button9.setLayoutY(50);
-            button10.setLayoutX(300);button10.setLayoutY(50);
-            addPane.getChildren().addAll(label3,button9,button10);
+            label1.setLayoutX(50);label1.setLayoutY(50);
+            button.setLayoutX(170);button.setLayoutY(50);
+            button1.setLayoutX(300);button1.setLayoutY(50);
+            addPane.getChildren().addAll(label2,button,button1);
 
             //添加学生信息
-            button9.setOnAction(e->{
-                label4.setLayoutX(50);label4.setLayoutY(100);
+            button.setOnAction(e->{
+                label2.setLayoutX(50);label2.setLayoutY(100);
                 t1.setLayoutX(170);t1.setLayoutY(100);
                 t2.setLayoutX(290);t2.setLayoutY(100);
                 t3.setLayoutX(410);t3.setLayoutY(100);
                 t4.setLayoutX(530);t4.setLayoutY(100);
                 t5.setLayoutX(650);t5.setLayoutY(100);
-                button11.setLayoutX(770);button11.setLayoutY(100);
-                addPane.getChildren().addAll(label4,t1,t2,t3,t4,t5,button11);
+                button2.setLayoutX(770);button2.setLayoutY(100);
+                addPane.getChildren().addAll(label2,t1,t2,t3,t4,t5,button2);
             });
-            button11.setOnAction(e->{
+            button2.setOnAction(e->{
                 //学号重复
                 Label label = new Label("学号重复！");
                 label.setLayoutX(50);label.setLayoutY(90);
@@ -68,18 +68,18 @@ public class AddPage implements View{
             });
 
             //添加缺课信息
-            button10.setOnAction(e->{
-                label4.setLayoutX(50);label4.setLayoutY(100);
+            button1.setOnAction(e->{
+                label2.setLayoutX(50);label2.setLayoutY(100);
                 t1.setLayoutX(170);t1.setLayoutY(100);
                 t11.setLayoutX(170);t11.setLayoutY(150);
                 t22.setLayoutX(290);t22.setLayoutY(150);
                 t33.setLayoutX(410);t33.setLayoutY(150);
                 t44.setLayoutX(530);t44.setLayoutY(150);
                 comboBox.setLayoutX(650);comboBox.setLayoutY(150);
-                button12.setLayoutX(770);button12.setLayoutY(150);
-                addPane.getChildren().addAll(label4,t1,t11,t22,t33,t44,comboBox,button12);
+                button3.setLayoutX(770);button3.setLayoutY(150);
+                addPane.getChildren().addAll(label2,t1,t11,t22,t33,t44,comboBox,button3);
             });
-            button12.setOnAction(e->{
+            button3.setOnAction(e->{
                 System.out.println("添加缺课记录成功！");
             });
 

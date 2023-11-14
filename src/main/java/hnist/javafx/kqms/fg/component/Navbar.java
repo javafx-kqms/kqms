@@ -4,7 +4,6 @@ import hnist.javafx.kqms.fg.view.AddPage;
 import hnist.javafx.kqms.fg.view.SearchPage;
 import hnist.javafx.kqms.fg.view.View;
 import javafx.scene.layout.Pane;
-import org.springframework.boot.autoconfigure.web.servlet.WebMvcProperties;
 
 public class Navbar {
     static private final View[] views = {new AddPage(),new SearchPage()};
