@@ -1,7 +1,7 @@
 package hnist.javafx.kqms.fg.main.view;
 
-import hnist.javafx.kqms.fg.main.Student;
-import javafx.application.Application;
+import pojo.Kaoqin;
+import pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 
 public class AddView implements View{
     private final Pane addPane = initView();

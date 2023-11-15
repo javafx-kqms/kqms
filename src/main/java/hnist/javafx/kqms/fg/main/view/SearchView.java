@@ -1,12 +1,9 @@
 package hnist.javafx.kqms.fg.main.view;
 
-import hnist.javafx.kqms.fg.main.Student;
-import javafx.application.Application;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class SearchView implements View{
     private final Pane searchPane = initView();

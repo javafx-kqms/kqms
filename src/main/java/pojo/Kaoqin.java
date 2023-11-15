@@ -1,4 +1,4 @@
-package hnist.javafx.kqms.fg.main.view;
+package pojo;
 
 public class Kaoqin {
     private String absentData;//缺课日期

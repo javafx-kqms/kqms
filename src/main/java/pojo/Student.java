@@ -1,4 +1,4 @@
-package hnist.javafx.kqms.fg.main;
+package pojo;
 
 public class Student {
     private int no;
