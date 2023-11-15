@@ -1,5 +1,6 @@
 package hnist.javafx.kqms.fg.main.view;
 
+import hnist.javafx.kqms.fg.main.Student;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -66,14 +67,43 @@ public class AddView implements View{
             t5.setLayoutX(650);t5.setLayoutY(100);
             button2.setLayoutX(770);button2.setLayoutY(100);
             root.getChildren().addAll(label2,t1,t2,t3,t4,t5,button2);
+
+
         });
+        //提取输入框中的学生信息
+        Student S = new Student(Integer.parseInt(t1.getText()),t2.getText(),t3.getText(),Integer.parseInt(t4.getText()),t5.getText());
+
         button2.setOnAction(e->{
-            //学号重复
-            Label label = new Label("学号重复！");
-            label.setLayoutX(50);label.setLayoutY(90);
-            label.setTextFill(Color.RED);
+
+            boolean tag = true;
+
+            /*
+
+           Integer.parseInt(t1.getText())与数据库中的学号进行对比
+           重复则 tag == false
+
+
+            */
+            if(tag){
+                //不重复则填入数据库
+                 /*
+
+                    将S中的内容添加到数据库中
+
+
+                 */
+            }else{
+                //学号重复
+                Label label = new Label("学号重复！");
+                label.setLayoutX(50);label.setLayoutY(90);
+                label.setTextFill(Color.RED);
+
+                root.getChildren().add(label);
+            }
+
             t1.clear();t2.clear();t3.clear();t4.clear();t5.clear();
-            root.getChildren().add(label);
+
+
         });
 
         //添加缺课信息
@@ -87,8 +117,22 @@ public class AddView implements View{
             comboBox.setLayoutX(650);comboBox.setLayoutY(150);
             button3.setLayoutX(770);button3.setLayoutY(150);
             root.getChildren().addAll(label2,t1,t11,t22,t33,t44,comboBox,button3);
+
         });
+
+
+        //提取输入框中的缺课信息
+        Kaoqin absence = new Kaoqin(t11.getText(),t22.getText(),t33.getText(), t44.getText(), comboBox.getSelectionModel().toString(),Integer.parseInt(t1.getText()));
+
         button3.setOnAction(e->{
+
+             /*
+
+            将信息absence填入数据库
+
+
+            */
+
             System.out.println("添加缺课记录成功！");
         });
 

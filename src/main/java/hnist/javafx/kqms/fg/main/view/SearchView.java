@@ -1,5 +1,6 @@
 package hnist.javafx.kqms.fg.main.view;
 
+import hnist.javafx.kqms.fg.main.Student;
 import javafx.application.Application;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -42,9 +43,18 @@ public class SearchView implements View{
         t4.setLayoutX(530);t4.setLayoutY(100);
         t5.setLayoutX(650);t5.setLayoutY(100);
         button.setLayoutX(770);button.setLayoutY(100);
-
         root.getChildren().addAll(label3,t1,t2,t3,t4,t5,button);
+
         button.setOnAction(e->{
+            /*
+
+
+
+
+
+            */
+
+
             System.out.println("查询成功！");
         });
 
@@ -58,7 +68,15 @@ public class SearchView implements View{
         button1.setLayoutX(410);button1.setLayoutY(200);
 
         root.getChildren().addAll(label4,t11,t22,button1);
+
         button1.setOnAction(e->{
+            /*
+
+
+
+            */
+
+
             System.out.println("查询成功！");
         });
 
