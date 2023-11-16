@@ -15,6 +15,8 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import org.springframework.stereotype.Component;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Component
@@ -41,6 +43,8 @@ public class AddView implements View {
 
         Label label1 = new Label("请选择添加类别");
         Label label2 = new Label("请输入信息");
+        Label label21 = new Label("请输入信息");
+        Label label22 = new Label("请输入信息");
         Button chooseStudenInfoButton = new Button("学生信息");
         Button chooseAbsentInfoButton = new Button("缺课信息");
         Button addStudentInfoButton = new Button("添加学生信息");
@@ -59,8 +63,8 @@ public class AddView implements View {
 
         TextField absentInfoData = new TextField();
         absentInfoData.setPromptText("缺课日期");
-        TextField absentInfoWhichCourse = new TextField();
-        absentInfoWhichCourse.setPromptText("第几节课");
+        TextField absentInfoCourseSection = new TextField();
+        absentInfoCourseSection.setPromptText("第几节课");
         TextField absentInfoCourseName = new TextField();
         absentInfoCourseName.setPromptText("课程名称");
         TextField absentInfoStudentName = new TextField();
@@ -85,25 +89,23 @@ public class AddView implements View {
         //添加学生信息
         chooseStudenInfoButton.setOnAction(e -> {
             label2.setLayoutX(50);
-            label2.setLayoutY(100);
+            label2.setLayoutY(300);
             studentInfoNumber.setLayoutX(170);
-            studentInfoNumber.setLayoutY(100);
+            studentInfoNumber.setLayoutY(300);
             studentInfoName.setLayoutX(290);
-            studentInfoName.setLayoutY(100);
+            studentInfoName.setLayoutY(300);
             studentInfoSex.setLayoutX(410);
-            studentInfoSex.setLayoutY(100);
+            studentInfoSex.setLayoutY(300);
             studentInfoAge.setLayoutX(530);
-            studentInfoAge.setLayoutY(100);
+            studentInfoAge.setLayoutY(300);
             studentInfoClass.setLayoutX(650);
-            studentInfoClass.setLayoutY(100);
+            studentInfoClass.setLayoutY(300);
             addStudentInfoButton.setLayoutX(770);
-            addStudentInfoButton.setLayoutY(100);
-            root.getChildren().addAll(label2, studentInfoNumber, studentInfoName, studentInfoSex, studentInfoAge, studentInfoClass, addStudentInfoButton);
-
-
+            addStudentInfoButton.setLayoutY(300);
+            root.getChildren().addAll(label21, studentInfoNumber, studentInfoName, studentInfoSex, studentInfoAge, studentInfoClass, addStudentInfoButton);
         });
-        //提取输入框中的学生信息
 
+        //提取输入框中的学生信息
         addStudentInfoButton.setOnAction(e -> {
 
             //与数据库中的学号进行对比
@@ -129,14 +131,14 @@ public class AddView implements View {
 
         //添加缺课信息
         chooseAbsentInfoButton.setOnAction(e -> {
-            label2.setLayoutX(50);
-            label2.setLayoutY(100);
-            studentInfoNumber.setLayoutX(170);
-            studentInfoNumber.setLayoutY(100);
+            label22.setLayoutX(50);
+            label22.setLayoutY(100);
+            absentInfoStudentNumber.setLayoutX(170);
+            absentInfoStudentName.setLayoutY(100);
             absentInfoData.setLayoutX(170);
             absentInfoData.setLayoutY(150);
-            absentInfoWhichCourse.setLayoutX(290);
-            absentInfoWhichCourse.setLayoutY(150);
+            absentInfoCourseSection.setLayoutX(290);
+            absentInfoCourseSection.setLayoutY(150);
             absentInfoCourseName.setLayoutX(410);
             absentInfoCourseName.setLayoutY(150);
             absentInfoStudentName.setLayoutX(530);
@@ -145,23 +147,33 @@ public class AddView implements View {
             comboBox.setLayoutY(150);
             addAbsentInfoButton.setLayoutX(770);
             addAbsentInfoButton.setLayoutY(150);
-            root.getChildren().addAll(label2, absentInfoStudentNumber, absentInfoData, absentInfoWhichCourse, absentInfoCourseName, absentInfoStudentName, comboBox, addAbsentInfoButton);
+            root.getChildren().addAll(label22, absentInfoStudentNumber, absentInfoData, absentInfoCourseSection, absentInfoCourseName, absentInfoStudentName, comboBox, addAbsentInfoButton);
         });
 
 
         //提取输入框中的缺课信息
 
         addAbsentInfoButton.setOnAction(e -> {
+            Date date = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+            try {
+                date = sdf.parse(absentInfoData.getText());
+            }catch (ParseException pe){
+                pe.printStackTrace();
+            }
 
-            Kaoqin absence = new Kaoqin(new Date(), absentInfoCourseName.getText(), Byte.parseByte(absentInfoWhichCourse.getText()), absentInfoStudentName.getText(), comboBox.getSelectionModel().toString(), studentInfoNumber.getText());
-             /*
+            if(kaoqinController.getKaoqinIfExistByDateAndSection(date,Byte.parseByte(absentInfoCourseSection.getText()))){
+                kaoqinController.addKaoqin(new Kaoqin(date,absentInfoCourseName.getText(),Byte.parseByte(absentInfoCourseSection.getText()),absentInfoStudentName.getText(),comboBox.getSelectionModel().toString(),studentInfoName.getText()));
+            }else{
+                //信息重复
+                Label label = new Label("缺课信息重复！");
+                label.setLayoutX(50);
+                label.setLayoutY(90);
+                label.setTextFill(Color.RED);
 
-            将信息absence填入数据库
+                root.getChildren().add(label);
+            }
 
-
-            */
-
-            System.out.println("添加缺课记录成功！");
         });
 
         return root;
