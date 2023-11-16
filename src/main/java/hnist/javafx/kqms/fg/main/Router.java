@@ -8,15 +8,19 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 public class Router {
-    private final View[] views = {new AddView(), new SearchView()};
+    private final View[] views;
+    public Router(View ..._views) {
+        views = _views;
+    }
 
-    public Scene getRouter() {
-        final VBox root = new VBox();
+    public VBox getRouter() {
+        VBox root = new VBox();
         root.getChildren().addAll(getNavbar(root), views[0].getView());
-        return new Scene(root, 1000, 800);
+        return root;
     }
 
     private HBox getNavbar(VBox root) {
