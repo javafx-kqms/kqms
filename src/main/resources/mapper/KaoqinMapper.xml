@@ -2,4 +2,15 @@
 
 <mapper namespace="hnist.javafx.kqms.bg.mapper.KaoqinMapper">
 
+<!--    boolean getKaoqinIfExistByDateAndSection(Date date, byte courseSection);-->
+    <select id="getKaoqinIfExistByDateAndSection" resultType="boolean">
+        select COUNT(*) = 0 from kaoqin
+        where date = #{date} and course_section = #{courseSection}
+    </select>
+
+<!--    void addKaoqin(Kaoqin kaoqin);-->
+    <insert id="addKaoqin">
+        insert into kaoqin values
+        (#{date}, #{courseName}, #{courseSection}, #{courseType}, #{studentName}, #{studentNo})
+    </insert>
 </mapper>

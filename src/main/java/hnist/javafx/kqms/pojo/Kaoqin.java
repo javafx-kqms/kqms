@@ -5,7 +5,7 @@ import java.util.Date;
 public class Kaoqin {
     private Date date;//缺课日期
     private String courseName;//课程名称
-    private String courseSection;//第几节课
+    private byte courseSection;//第几节课
     private String type;//缺课类型
     private String studentName;
     private String studentNo;
@@ -14,7 +14,7 @@ public class Kaoqin {
 
     }
 
-    public Kaoqin(Date date, String courseName, String courseSection, String type, String studentName, String studentNo) {
+    public Kaoqin(Date date, String courseName, byte courseSection, String type, String studentName, String studentNo) {
         this.date = date;
         this.courseName = courseName;
         this.courseSection = courseSection;
@@ -39,11 +39,11 @@ public class Kaoqin {
         this.courseName = courseName;
     }
 
-    public String getCourseSection() {
+    public byte getCourseSection() {
         return courseSection;
     }
 
-    public void setCourseSection(String courseSection) {
+    public void setCourseSection(byte courseSection) {
         this.courseSection = courseSection;
     }
 
