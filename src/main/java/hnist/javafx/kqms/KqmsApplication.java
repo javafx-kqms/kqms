@@ -3,9 +3,7 @@ package hnist.javafx.kqms;
 import hnist.javafx.kqms.fg.main.Router;
 import javafx.application.Application;
 import javafx.stage.Stage;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 public class KqmsApplication extends Application {
 
     @Override

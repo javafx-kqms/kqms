@@ -4,7 +4,6 @@ import hnist.javafx.kqms.bg.controller.KaoqinController;
 import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.pojo.Kaoqin;
 import hnist.javafx.kqms.pojo.Student;
-import org.springframework.beans.factory.annotation.Autowired;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
@@ -13,20 +12,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import org.springframework.stereotype.Component;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Component
 public class AddView implements View {
     private final Pane addPane = initView();
 
-    @Autowired
-    StudentController studentController;
-    @Autowired
-    KaoqinController kaoqinController;
+    StudentController studentController = new StudentController();
+    KaoqinController kaoqinController = new KaoqinController();
 
     @Override
     public Pane getView() {
