@@ -1,5 +1,6 @@
 package hnist.javafx.kqms.fg.main.view;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import pojo.Kaoqin;
 import pojo.Student;
 import javafx.collections.FXCollections;

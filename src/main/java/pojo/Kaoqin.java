@@ -8,6 +8,10 @@ public class Kaoqin {
     private String studentName;
     private int studentNo;
 
+    public Kaoqin(){
+
+    }
+
     public Kaoqin(String absentData, String absentClass, String absentCourse, String absentType, String studentName, int studentNo) {
         this.absentData = absentData;
         this.absentClass = absentClass;
@@ -16,11 +20,6 @@ public class Kaoqin {
         this.studentName = studentName;
         this.studentNo = studentNo;
     }
-
-    public Kaoqin(){
-
-    }
-
 
     public int getStudentNo() {
         return studentNo;
