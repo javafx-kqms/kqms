@@ -1,4 +1,4 @@
-package pojo;
+package hnist.javafx.kqms.pojo;
 
 public class Student {
     private String no;

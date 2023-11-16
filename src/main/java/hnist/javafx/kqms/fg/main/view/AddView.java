@@ -1,8 +1,7 @@
 package hnist.javafx.kqms.fg.main.view;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import pojo.Kaoqin;
-import pojo.Student;
+import hnist.javafx.kqms.pojo.Kaoqin;
+import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;

@@ -1,4 +1,4 @@
-package pojo;
+package hnist.javafx.kqms.pojo;
 
 import java.util.Date;
 
