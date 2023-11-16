@@ -1,13 +1,13 @@
 package pojo;
 
 public class Student {
-    private int no;
+    private String no;
     private String name;
     private String sex;
-    private int age;
+    private short age;
     private String className;
 
-    public Student(int no,String name,String sex,int age ,String className){
+    public Student(String no, String name, String sex, short age , String className){
         this.no = no;
         this.name = name;
         this.sex = sex;
@@ -18,11 +18,11 @@ public class Student {
     public Student(){
 
     }
-    public int getNo() {
+    public String getNo() {
         return no;
     }
 
-    public void setNo(int no) {
+    public void setNo(String no) {
         this.no = no;
     }
 
@@ -42,11 +42,11 @@ public class Student {
         this.sex = sex;
     }
 
-    public int getAge() {
+    public short getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(short age) {
         this.age = age;
     }
 

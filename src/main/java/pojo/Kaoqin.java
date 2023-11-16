@@ -1,71 +1,73 @@
 package pojo;
 
+import java.util.Date;
+
 public class Kaoqin {
-    private String absentData;//缺课日期
-    private String absentClass;//第几节课
-    private String absentCourse;//课程名称
-    private String absentType;//缺课类型
+    private Date date;//缺课日期
+    private String courseName;//课程名称
+    private String courseSection;//第几节课
+    private String type;//缺课类型
     private String studentName;
-    private int studentNo;
+    private String studentNo;
 
     public Kaoqin(){
 
     }
 
-    public Kaoqin(String absentData, String absentClass, String absentCourse, String absentType, String studentName, int studentNo) {
-        this.absentData = absentData;
-        this.absentClass = absentClass;
-        this.absentCourse = absentCourse;
-        this.absentType = absentType;
+    public Kaoqin(Date date, String courseName, String courseSection, String type, String studentName, String studentNo) {
+        this.date = date;
+        this.courseName = courseName;
+        this.courseSection = courseSection;
+        this.type = type;
         this.studentName = studentName;
         this.studentNo = studentNo;
     }
 
-    public int getStudentNo() {
-        return studentNo;
+    public Date getDate() {
+        return date;
     }
 
-    public void setStudentNo(int studentNo) {
-        this.studentNo = studentNo;
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getCourseName() {
+        return courseName;
+    }
+
+    public void setCourseName(String courseName) {
+        this.courseName = courseName;
+    }
+
+    public String getCourseSection() {
+        return courseSection;
+    }
+
+    public void setCourseSection(String courseSection) {
+        this.courseSection = courseSection;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getStudentName() {
         return studentName;
     }
 
-    public String getAbsentData() {
-        return absentData;
-    }
-
-    public void setAbsentData(String absentData) {
-        this.absentData = absentData;
-    }
-
-    public String getAbsentClass() {
-        return absentClass;
-    }
-
-    public void setAbsentClass(String absentClass) {
-        this.absentClass = absentClass;
-    }
-
-    public String getAbsentCourse() {
-        return absentCourse;
-    }
-
-    public void setAbsentCourse(String absentCourse) {
-        this.absentCourse = absentCourse;
-    }
-
-    public String getAbsentType() {
-        return absentType;
-    }
-
-    public void setAbsentType(String absentType) {
-        this.absentType = absentType;
-    }
-
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+
+    public String getStudentNo() {
+        return studentNo;
+    }
+
+    public void setStudentNo(String studentNo) {
+        this.studentNo = studentNo;
     }
 }
