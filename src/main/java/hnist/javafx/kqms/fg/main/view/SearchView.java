@@ -1,11 +1,12 @@
 package hnist.javafx.kqms.fg.main.view;
 
+import hnist.javafx.kqms.fg.main.View;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class SearchView extends View{
+public class SearchView extends View {
     private final Pane searchPane = initView();
 
     @Override

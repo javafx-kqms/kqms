@@ -2,15 +2,28 @@
 
 <mapper namespace="hnist.javafx.kqms.bg.mapper.StudentMapper">
 
+<!--    void addStudent(Student student);-->
+    <insert id="addStudent">
+        insert into student values
+        (#{no}, #{name}, #{sex}, #{age}, #{className})
+    </insert>
+
 <!--    boolean getStudentIfExistByNo(String no);-->
     <select id="getStudentIfExistByNo" resultType="boolean">
         select COUNT(*) = 0 from student
         where no = #{1}
     </select>
 
-<!--    void addStudent(Student student);-->
-    <insert id="addStudent">
-        insert into student values
-        (#{no}, #{name}, #{sex}, #{age}, #{className})
-    </insert>
+<!--    List<Student> getStudentByNoAndName(@Param("no") String no, @Param("name") String name);-->
+    <select id="getStudentByNoAndName" resultType="Student">
+        select * from student
+        <where>
+            <if test="no != null">
+                no = #{no}
+            </if>
+            <if test="name != null">
+                and name = #{name}
+            </if>
+        </where>
+    </select>
 </mapper>
