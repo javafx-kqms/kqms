@@ -58,21 +58,19 @@ public class GetStudentView extends View {
         GridPane.setConstraints(studentIfo,0,3,5,1);
 
         searchButton.setOnAction(e->{
-            if(studentNumber.getText().isEmpty() && studentName.getText().isEmpty()){
-                //TODO
-                // 返回全部学生信息到studentInfo表中
-            }else if(!studentNumber.getText().isEmpty() && studentName.getText().isEmpty()){
-                if(StudentController.getStudentIfExistByNo(studentNumber.getText())){
-                    //TODO
-                    // 将与studentNumber.getText()相同的学号的信息写入表中
-
-                }else{
-                    gridPane.add(unfindLabel,0,2);
-                }
-            }else if(studentNumber.getText().isEmpty() && !studentName.getText().isEmpty()){
-                //TODO
-                // 比较是否有与输入的姓名相同的记录
+            String numberStr;
+            if(studentNumber.getText().isEmpty()){
+                 numberStr = null;
+            }else{
+                numberStr = studentNumber.getText();
             }
+            String nameStr ;
+            if(studentName.getText().isEmpty()){
+                nameStr = null;
+            }else{
+                nameStr = studentName.getText();
+            }
+
         });
 
         // 添加按钮到每一行
