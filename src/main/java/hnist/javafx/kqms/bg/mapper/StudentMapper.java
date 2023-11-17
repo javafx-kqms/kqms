@@ -6,10 +6,13 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface StudentMapper {
+    void addStudent(Student student);
+
+    void deleteStudent(String no);
+
+    void modifyStudent(Student student);
 
     boolean getStudentIfExistByNo(String no);
-
-    void addStudent(Student student);
 
     List<Student> getStudentByNoAndName(@Param("no") String no, @Param("name") String name);
 }

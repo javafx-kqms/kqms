@@ -1,10 +1,7 @@
 package hnist.javafx.kqms.fg.main.student;
 
-import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Student;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;

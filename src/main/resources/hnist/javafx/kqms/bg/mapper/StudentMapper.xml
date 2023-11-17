@@ -8,10 +8,23 @@
         (#{no}, #{name}, #{sex}, #{age}, #{className})
     </insert>
 
+<!--    void deleteStudent(String no);-->
+    <delete id="deleteStudent">
+        delete from student
+        where no = #{no}
+    </delete>
+
+<!--    void modifyStudent(Student student);-->
+    <update id="modifyStudent">
+        update student
+        set name = #{name}, sex = #{sex}, age = #{age}, class_name = #{className}
+        where no = #{no}
+    </update>
+
 <!--    boolean getStudentIfExistByNo(String no);-->
     <select id="getStudentIfExistByNo" resultType="boolean">
         select COUNT(*) = 0 from student
-        where no = #{1}
+        where no = #{no}
     </select>
 
 <!--    List<Student> getStudentByNoAndName(@Param("no") String no, @Param("name") String name);-->

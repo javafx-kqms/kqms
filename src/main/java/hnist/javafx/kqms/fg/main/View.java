@@ -4,7 +4,7 @@ import javafx.scene.layout.Pane;
 
 // 所有页面都要实现该接口
 public abstract class View {
-     protected Pane root;
+     private Pane root;
      public Pane getView()  {
           if (root == null)
                root = initView();

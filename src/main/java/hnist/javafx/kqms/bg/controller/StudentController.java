@@ -12,6 +12,14 @@ public class StudentController {
         studentMapper.addStudent(student);
     }
 
+    static public void deleteStudent(String no) {
+        studentMapper.deleteStudent(no);
+    }
+
+    static public void modifyStudent(Student student) {
+        studentMapper.modifyStudent(student);
+    }
+
     static public boolean getStudentIfExistByNo(String no) {
         return studentMapper.getStudentIfExistByNo(no);
     }
