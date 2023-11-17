@@ -3,9 +3,13 @@ package hnist.javafx.kqms.fg.main.student;
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Student;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.control.TableColumn;
+
 
 import java.util.Optional;
 
@@ -44,13 +48,24 @@ public class GetStudentView extends View {
         TableColumn sexColumn = new TableColumn("性别");
         TableColumn ageColumn = new TableColumn("年龄");
         TableColumn classNameColumn = new TableColumn("班级");
+        numberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        numberColumn.setCellValueFactory(new PropertyValueFactory<>("no"));
+        nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        sexColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        sexColumn.setCellValueFactory(new PropertyValueFactory<>("sex"));
+        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
+        classNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        classNameColumn.setCellValueFactory(new PropertyValueFactory<>("className"));
+        studentIfo.getColumns().addAll(numberColumn,nameColumn,sexColumn,ageColumn,classNameColumn);
+
         nameColumn.setPrefWidth(100);
         numberColumn.setPrefWidth(100);
         sexColumn.setPrefWidth(100);
         ageColumn.setPrefWidth(100);
         classNameColumn.setPrefWidth(100);
 
-        studentIfo.getColumns().addAll(numberColumn,nameColumn,sexColumn,ageColumn,classNameColumn);
         gridPane.add(studentIfo,0,3);
         GridPane.setConstraints(studentIfo,0,3,5,1);
 
@@ -67,7 +82,9 @@ public class GetStudentView extends View {
             }else{
                 nameStr = studentName.getText();
             }
-
+            System.out.println("结果"+StudentController.getStudentByNoAndName(numberStr,nameStr).toString());
+            ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
+            studentIfo.setItems(list);
         });
 
         // 添加按钮到每一行
