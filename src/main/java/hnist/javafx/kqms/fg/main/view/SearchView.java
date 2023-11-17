@@ -20,29 +20,29 @@ public class SearchView extends View{
 
     protected Pane initView() {
         Pane root = new Pane();
-        Button button = new Button("查询学生信息");
-        Button button1 = new Button("查询缺课信息");
+        Button searchStudentInfoButton = new Button("查询学生信息");
+        Button searchAbsentInfoButton = new Button("查询缺课信息");
 
-        Label label3 = new Label("查询学生信息");
-        Label label4 = new Label("查询缺课信息");
+        Label searchStudentLabel = new Label("查询学生信息");
+        Label searchAbsentLabel = new Label("查询缺课信息");
 
         //查询学生信息
-        TextField t1 = new TextField();t1.setPromptText("学号");
-        TextField t2 = new TextField();t2.setPromptText("姓名");
-        TextField t3 = new TextField();t3.setPromptText("性别");
-        TextField t4 = new TextField();t4.setPromptText("年龄");
-        TextField t5 = new TextField();t5.setPromptText("班级");
+        TextField searchStudentNumber = new TextField();searchStudentNumber.setPromptText("学号");
+        TextField searchStudentName = new TextField();searchStudentName.setPromptText("姓名");
+        TextField searchStudentSex = new TextField();searchStudentSex.setPromptText("性别");
+        TextField searchStudentAge = new TextField();searchStudentAge.setPromptText("年龄");
+        TextField searchStudentClass = new TextField();searchStudentClass.setPromptText("班级");
 
-        label3.setLayoutX(50);label3.setLayoutY(100);
-        t1.setLayoutX(170);t1.setLayoutY(100);
-        t2.setLayoutX(290);t2.setLayoutY(100);
-        t3.setLayoutX(410);t3.setLayoutY(100);
-        t4.setLayoutX(530);t4.setLayoutY(100);
-        t5.setLayoutX(650);t5.setLayoutY(100);
-        button.setLayoutX(770);button.setLayoutY(100);
-        root.getChildren().addAll(label3,t1,t2,t3,t4,t5,button);
+        searchStudentLabel.setLayoutX(50);searchStudentLabel.setLayoutY(100);
+        searchStudentNumber.setLayoutX(170);searchStudentNumber.setLayoutY(100);
+        searchStudentName.setLayoutX(290);searchStudentName.setLayoutY(100);
+        searchStudentSex.setLayoutX(410);searchStudentSex.setLayoutY(100);
+        searchStudentAge.setLayoutX(530);searchStudentAge.setLayoutY(100);
+        searchStudentClass.setLayoutX(650);searchStudentClass.setLayoutY(100);
+        searchStudentInfoButton.setLayoutX(770);searchStudentInfoButton.setLayoutY(100);
+        root.getChildren().addAll(searchStudentLabel,searchStudentNumber,searchStudentName,searchStudentSex,searchStudentAge,searchStudentClass,searchStudentInfoButton);
 
-        button.setOnAction(e->{
+        searchStudentInfoButton.setOnAction(e->{
             /*
 
 
@@ -56,17 +56,18 @@ public class SearchView extends View{
         });
 
         //查询缺课信息
-        TextField t11 = new TextField();t11.setPromptText("课程名");
-        TextField t22 = new TextField();t22.setPromptText("学生姓名");
+        TextField searchAbsentCourseName = new TextField();searchAbsentCourseName.setPromptText("课程名");
+        TextField searchAbsentStudentName = new TextField();searchAbsentStudentName.setPromptText("学生姓名");
+        TextField searchAbsentStudentNumber = new TextField();searchAbsentStudentNumber.setPromptText("学生学号");
 
-        label4.setLayoutX(50);label4.setLayoutY(200);
-        t11.setLayoutX(170);t11.setLayoutY(200);
-        t22.setLayoutX(290);t22.setLayoutY(200);
-        button1.setLayoutX(410);button1.setLayoutY(200);
+        searchAbsentLabel.setLayoutX(50);searchAbsentLabel.setLayoutY(200);
+        searchAbsentCourseName.setLayoutX(170);searchAbsentCourseName.setLayoutY(200);
+        searchAbsentStudentName.setLayoutX(290);searchAbsentStudentName.setLayoutY(200);
+        searchAbsentInfoButton.setLayoutX(410);searchAbsentInfoButton.setLayoutY(200);
 
-        root.getChildren().addAll(label4,t11,t22,button1);
+        root.getChildren().addAll(searchAbsentLabel,searchAbsentCourseName,searchAbsentStudentName,searchAbsentInfoButton);
 
-        button1.setOnAction(e->{
+        searchAbsentInfoButton.setOnAction(e->{
             /*
 
 

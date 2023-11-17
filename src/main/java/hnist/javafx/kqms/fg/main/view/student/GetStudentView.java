@@ -7,7 +7,7 @@ public class GetStudentView extends View {
     @Override
     public String getName() {
         // TODO
-        return "todo";
+        return "查询学生信息";
     }
 
     @Override

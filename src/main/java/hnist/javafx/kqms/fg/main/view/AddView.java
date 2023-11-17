@@ -124,12 +124,15 @@ public class AddView extends View {
             studentInfoClass.clear();
         });
 
+
+
+
         //添加缺课信息
         chooseAbsentInfoButton.setOnAction(e -> {
             label22.setLayoutX(50);
             label22.setLayoutY(100);
             absentInfoStudentNumber.setLayoutX(170);
-            absentInfoStudentName.setLayoutY(100);
+            absentInfoStudentNumber.setLayoutY(100);
             absentInfoData.setLayoutX(170);
             absentInfoData.setLayoutY(150);
             absentInfoCourseSection.setLayoutX(290);
@@ -154,7 +157,7 @@ public class AddView extends View {
             try {
                 date = sdf.parse(absentInfoData.getText());
             }catch (ParseException pe){
-                pe.printStackTrace();
+                pe.fillInStackTrace();
             }
 
             if(kaoqinController.getKaoqinIfExistByDateAndSection(date,Byte.parseByte(absentInfoCourseSection.getText()))){
