@@ -3,14 +3,16 @@ package hnist.javafx.kqms.fg.main.view.kaoqin;
 import hnist.javafx.kqms.fg.main.view.View;
 import javafx.scene.layout.Pane;
 
-public class KaoqinView implements View {
+public class KaoqinView extends View {
     @Override
     public String getName() {
+        // TODO
         return "todo";
     }
 
     @Override
-    public Pane getView() {
+    protected Pane initView() {
+        // TODO
         return new Pane();
     }
 }

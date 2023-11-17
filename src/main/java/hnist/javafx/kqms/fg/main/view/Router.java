@@ -11,13 +11,20 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class Router {
+public class Router extends View {
     private final View[] views;
+
     public Router(View ..._views) {
         views = _views;
     }
 
-    public VBox getRouter() {
+    @Override
+    public String getName() {
+        return null;
+    }
+
+    @Override
+    protected Pane initView() {
         VBox root = new VBox();
         root.getChildren().addAll(getNavbar(root), views[0].getView());
         return root;

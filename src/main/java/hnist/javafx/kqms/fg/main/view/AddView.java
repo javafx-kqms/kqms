@@ -17,7 +17,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class AddView implements View {
+public class AddView extends View {
     private final Pane addPane = initView();
 
     StudentController studentController = new StudentController();
@@ -33,7 +33,7 @@ public class AddView implements View {
         return "添加信息";
     }
 
-    private Pane initView() {
+    protected Pane initView() {
         Pane root = new Pane();
 
         Label label1 = new Label("请选择添加类别");

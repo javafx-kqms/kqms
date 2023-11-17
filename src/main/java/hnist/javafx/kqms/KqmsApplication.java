@@ -13,7 +13,7 @@ public class KqmsApplication extends Application {
     @Override
     public void start(Stage stage) {
         Router router = new Router(new StudentView(), new KaoqinView());
-        stage.setScene(new Scene( router.getRouter(), 1000, 800));
+        stage.setScene(new Scene(router.getView(), 1000, 800));
         stage.show();
     }
 }

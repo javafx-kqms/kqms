@@ -5,7 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 
-public class SearchView implements View{
+public class SearchView extends View{
     private final Pane searchPane = initView();
 
     @Override
@@ -18,7 +18,7 @@ public class SearchView implements View{
         return "查找信息";
     }
 
-    private Pane initView() {
+    protected Pane initView() {
         Pane root = new Pane();
         Button button = new Button("查询学生信息");
         Button button1 = new Button("查询缺课信息");
