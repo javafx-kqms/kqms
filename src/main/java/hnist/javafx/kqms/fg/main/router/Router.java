@@ -1,4 +1,4 @@
-package hnist.javafx.kqms.fg.main.view;
+package hnist.javafx.kqms.fg.main.router;
 
 import hnist.javafx.kqms.fg.main.view.AddView;
 import hnist.javafx.kqms.fg.main.view.SearchView;

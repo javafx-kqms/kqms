@@ -23,7 +23,7 @@ public class AddStudentView extends View {
 
     @Override
     public Pane initView() {
-        Label promptLabel =new Label("请填写必要信息");
+        Label promptLabel = new Label("请填写必要信息");
         Label studentNumberLabel = new Label("学号");
         TextField studentInfoNumber = new TextField();
         studentInfoNumber.setPromptText("不超过11位");
@@ -37,7 +37,7 @@ public class AddStudentView extends View {
         TextField studentInfoClass = new TextField();
         studentInfoClass.setPromptText("计科21-2BJ");
         Button addStudentInfoButton = new Button("添加");
-        addStudentInfoButton.setPrefSize(250,10);
+        addStudentInfoButton.setPrefSize(250, 10);
 
         ObservableList<String> options = FXCollections.observableArrayList(
                 "男", "女"
@@ -48,19 +48,19 @@ public class AddStudentView extends View {
         GridPane gridPane = new GridPane();
         gridPane.setHgap(10);
         gridPane.setVgap(10);
-        gridPane.add(promptLabel,1,0);
-        gridPane.add(studentNumberLabel,1,1);
-        gridPane.add(studentInfoNumber,2,1);
-        gridPane.add(studentNameLabel,1,2);
-        gridPane.add(studentInfoName,2,2);
-        gridPane.add(stduentSexLabel,1,3);
-        gridPane.add(comboBox,2,3);
-        gridPane.add(studentAgeLabel,1,4);
-        gridPane.add(studentInfoAge,2,4);
-        gridPane.add(studentClassLabel,1,5);
-        gridPane.add(studentInfoClass,2,5);
-        gridPane.add(addStudentInfoButton,1,6);
-        GridPane.setConstraints(addStudentInfoButton,1,6,2,1);
+        gridPane.add(promptLabel, 1, 0);
+        gridPane.add(studentNumberLabel, 1, 1);
+        gridPane.add(studentInfoNumber, 2, 1);
+        gridPane.add(studentNameLabel, 1, 2);
+        gridPane.add(studentInfoName, 2, 2);
+        gridPane.add(stduentSexLabel, 1, 3);
+        gridPane.add(comboBox, 2, 3);
+        gridPane.add(studentAgeLabel, 1, 4);
+        gridPane.add(studentInfoAge, 2, 4);
+        gridPane.add(studentClassLabel, 1, 5);
+        gridPane.add(studentInfoClass, 2, 5);
+        gridPane.add(addStudentInfoButton, 1, 6);
+        GridPane.setConstraints(addStudentInfoButton, 1, 6, 2, 1);
 
         gridPane.setAlignment(Pos.CENTER);
 
@@ -73,12 +73,12 @@ public class AddStudentView extends View {
                 //不重复则填入数据库
                 StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(), comboBox.getValue(), Short.parseShort(studentInfoAge.getText()), studentInfoClass.getText()));
                 Label successLabel = new Label("添加成功！");
-                gridPane.add(successLabel,2,7);
+                gridPane.add(successLabel, 2, 7);
             } else {
                 //学号重复
                 Label repeatLabel = new Label("学号重复！");
                 repeatLabel.setTextFill(Color.RED);
-                gridPane.add(repeatLabel,1,7);
+                gridPane.add(repeatLabel, 1, 7);
             }
 
             studentInfoNumber.clear();
@@ -86,7 +86,6 @@ public class AddStudentView extends View {
             studentInfoAge.clear();
             studentInfoClass.clear();
         });
-
 
 
         // TODO

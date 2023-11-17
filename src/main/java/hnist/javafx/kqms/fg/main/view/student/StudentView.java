@@ -1,6 +1,6 @@
 package hnist.javafx.kqms.fg.main.view.student;
 
-import hnist.javafx.kqms.fg.main.view.Router;
+import hnist.javafx.kqms.fg.main.router.Router;
 import hnist.javafx.kqms.fg.main.view.View;
 import javafx.scene.layout.Pane;
 
@@ -12,6 +12,6 @@ public class StudentView extends View {
 
     @Override
     protected Pane initView() {
-        return new Router(new GetStudentView(), new AddStudentView(), new ModifyStudentView()).getView();
+        return new Router(new GetStudentView(), new AddStudentView()).getView();
     }
 }

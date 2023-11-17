@@ -26,13 +26,13 @@ public class GetStudentView extends View {
         GridPane gridPane = new GridPane();
         gridPane.setVgap(10);
         gridPane.setHgap(10);
-        gridPane.add(studentNumberLabel,0,0);
-        gridPane.add(studentNumber,1,0);
-        gridPane.add(studentNameLabel,2,0);
-        gridPane.add(studentName,3,0);
-        gridPane.add(searchButton,4,0);
-        gridPane.add(label,0,1);
-        GridPane.setConstraints(label,0,1,2,1);
+        gridPane.add(studentNumberLabel, 0, 0);
+        gridPane.add(studentNumber, 1, 0);
+        gridPane.add(studentNameLabel, 2, 0);
+        gridPane.add(studentName, 3, 0);
+        gridPane.add(searchButton, 4, 0);
+        gridPane.add(label, 0, 1);
+        GridPane.setConstraints(label, 0, 1, 2, 1);
 
         // TODO
         return gridPane;
