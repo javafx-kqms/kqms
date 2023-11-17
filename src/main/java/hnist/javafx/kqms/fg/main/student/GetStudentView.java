@@ -1,7 +1,10 @@
 package hnist.javafx.kqms.fg.main.student;
 
+import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -9,6 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TableColumn;
+import javafx.util.converter.ShortStringConverter;
 
 
 import java.util.Optional;
@@ -44,19 +48,19 @@ public class GetStudentView extends View {
         gridPane.add(label, 0, 1);
         GridPane.setConstraints(label, 0, 1, 2, 1);
 
-        TableView<Student> studentIfo = new TableView<Student>();
-        TableColumn numberColumn = new TableColumn("学号");
-        TableColumn nameColumn = new TableColumn("姓名");
-        TableColumn sexColumn = new TableColumn("性别");
-        TableColumn ageColumn = new TableColumn("年龄");
-        TableColumn classNameColumn = new TableColumn("班级");
+        TableView<Student> studentIfo = new TableView<>();
+        TableColumn<Student, String> numberColumn = new TableColumn<>("学号");
+        TableColumn<Student, String> nameColumn = new TableColumn<>("姓名");
+        TableColumn<Student, String> sexColumn = new TableColumn<>("性别");
+        TableColumn<Student, Short> ageColumn = new TableColumn<>("年龄");
+        TableColumn<Student, String> classNameColumn = new TableColumn<>("班级");
         numberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("no"));
         nameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         sexColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         sexColumn.setCellValueFactory(new PropertyValueFactory<>("sex"));
-        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new ShortStringConverter()));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         classNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         classNameColumn.setCellValueFactory(new PropertyValueFactory<>("className"));
@@ -84,7 +88,7 @@ public class GetStudentView extends View {
             }else{
                 nameStr = studentName.getText();
             }
-            System.out.println("结果"+StudentController.getStudentByNoAndName(numberStr,nameStr).toString());
+
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
             if(!StudentController.getStudentIfExistByNo(numberStr)){
                 studentIfo.setItems(list);
