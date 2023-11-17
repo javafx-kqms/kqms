@@ -11,6 +11,6 @@
 <!--    void addStudent(Student student);-->
     <insert id="addStudent">
         insert into student values
-        (#{no}, #{name}, #{sex}, #{age}, #{class_name})
+        (#{no}, #{name}, #{sex}, #{age}, #{className})
     </insert>
 </mapper>

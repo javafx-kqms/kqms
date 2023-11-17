@@ -6,6 +6,7 @@ import hnist.javafx.kqms.pojo.Student;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -47,7 +48,7 @@ public class AddStudentView extends View {
         addStudentInfoButton.setLayoutY(300);
 
         Pane pane = new Pane();
-        pane.getChildren().addAll(promptLabel,studentInfoNumber,studentInfoName,studentInfoSex,studentInfoAge,studentInfoClass,addStudentInfoButton);
+        pane.getChildren().addAll(promptLabel, studentInfoNumber, studentInfoName, studentInfoSex, studentInfoAge, studentInfoClass, addStudentInfoButton);
 
         //提取输入框中的学生信息
         addStudentInfoButton.setOnAction(e -> {
@@ -72,7 +73,6 @@ public class AddStudentView extends View {
             studentInfoAge.clear();
             studentInfoClass.clear();
         });
-
 
 
         // TODO

@@ -7,7 +7,6 @@ public class StudentController {
     static private final StudentMapper studentMapper = MapperGenerator.getStudentMapper();
 
     static public boolean getStudentIfExistByNo(String no) {
-        System.out.println(no);
         return studentMapper.getStudentIfExistByNo(no);
     }
 
