@@ -31,8 +31,10 @@ public class GetStudentView extends View {
         TextField studentName = new TextField();
         Button searchButton = new Button("搜索");
         Label label = new Label("若没有填入搜索信息则显示全部学生信息");
-        Label unfindLabel = new Label("该学生信息不存在");
+        Label unfindLabel = new Label("该学生信息不存在！");
+        Label unfindLabel1 = new Label("该学生信息不存在！");
         unfindLabel.setTextFill(Color.RED);
+        unfindLabel1.setTextFill(Color.RED);
 
         GridPane gridPane = new GridPane();
         gridPane.setVgap(10);
@@ -87,7 +89,12 @@ public class GetStudentView extends View {
             }
             System.out.println("结果"+StudentController.getStudentByNoAndName(numberStr,nameStr).toString());
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
-            studentIfo.setItems(list);
+            if(!StudentController.getStudentIfExistByNo(numberStr)){
+                studentIfo.setItems(list);
+            }else{
+                gridPane.add(unfindLabel1,0,4);
+            }
+
         });
 
         // 添加按钮到每一行
