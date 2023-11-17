@@ -2,6 +2,7 @@ package hnist.javafx.kqms.fg.main.view;
 
 import hnist.javafx.kqms.bg.controller.KaoqinController;
 import hnist.javafx.kqms.bg.controller.StudentController;
+import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Kaoqin;
 import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;

@@ -1,9 +1,6 @@
 package hnist.javafx.kqms;
 
-import hnist.javafx.kqms.fg.main.router.Router;
-import hnist.javafx.kqms.fg.main.view.MainView;
-import hnist.javafx.kqms.fg.main.view.kaoqin.KaoqinView;
-import hnist.javafx.kqms.fg.main.view.student.StudentView;
+import hnist.javafx.kqms.fg.main.MainView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

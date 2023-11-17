@@ -1,6 +1,6 @@
-package hnist.javafx.kqms.fg.main.view.kaoqin;
+package hnist.javafx.kqms.fg.main.kaoqin;
 
-import hnist.javafx.kqms.fg.main.view.View;
+import hnist.javafx.kqms.fg.main.View;
 import javafx.scene.layout.Pane;
 
 public class KaoqinView extends View {

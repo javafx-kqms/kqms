@@ -1,6 +1,6 @@
-package hnist.javafx.kqms.fg.main.view.hello;
+package hnist.javafx.kqms.fg.main.hello;
 
-import hnist.javafx.kqms.fg.main.view.View;
+import hnist.javafx.kqms.fg.main.View;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;

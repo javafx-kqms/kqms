@@ -1,22 +1,17 @@
-package hnist.javafx.kqms.fg.main.router;
+package hnist.javafx.kqms.fg.main;
 
-import hnist.javafx.kqms.fg.main.view.AddView;
-import hnist.javafx.kqms.fg.main.view.SearchView;
-import hnist.javafx.kqms.fg.main.view.View;
+import hnist.javafx.kqms.fg.main.hello.HelloView;
+import hnist.javafx.kqms.fg.main.student.AddStudentView;
+import hnist.javafx.kqms.fg.main.student.GetStudentView;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class Router extends View {
-    private final View[] views;
-
-    public Router(View ..._views) {
-        views = _views;
-    }
+public class MainView extends View {
+    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView()};
 
     @Override
     public String getName() {
@@ -25,15 +20,19 @@ public class Router extends View {
 
     @Override
     protected Pane initView() {
-        VBox root = new VBox();
-        root.getChildren().addAll(getNavbar(root), views[0].getView());
+        VBox root = new VBox(getNavbar(), views[0].getView());
+        root.setSpacing(10);
         return root;
     }
 
-    private HBox getNavbar(VBox root) {
+    private HBox getNavbar() {
         HBox navbar = new HBox();
+        navbar.setStyle("-fx-background-color: #333333;");
+
         for (View view : views) {
             Button button = new Button(view.getName());
+            button.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;");
+
             button.setOnAction((e) -> {
                 ObservableList<Node> children = root.getChildren();
                 if (children.get(1) != view.getView()) {
