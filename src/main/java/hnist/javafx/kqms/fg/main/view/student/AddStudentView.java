@@ -74,13 +74,15 @@ public class AddStudentView extends View {
                 StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(), comboBox.getValue(), Short.parseShort(studentInfoAge.getText()), studentInfoClass.getText()));
                 Label successLabel = new Label("添加成功！");
                 gridPane.add(successLabel, 2, 7);
+
             } else {
                 //学号重复
                 Label repeatLabel = new Label("学号重复！");
                 repeatLabel.setTextFill(Color.RED);
                 gridPane.add(repeatLabel, 1, 7);
-            }
 
+            }
+            comboBox.getSelectionModel().clearSelection();
             studentInfoNumber.clear();
             studentInfoName.clear();
             studentInfoAge.clear();
