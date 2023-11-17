@@ -4,15 +4,14 @@ import hnist.javafx.kqms.bg.mapper.StudentMapper;
 import hnist.javafx.kqms.pojo.Student;
 
 public class StudentController {
+    static private final StudentMapper studentMapper = MapperGenerator.getStudentMapper();
 
-    StudentMapper studentMapper = MapperGenerator.getStudentMapper();
-
-    public boolean getStudentIfExistByNo(String no) {
+    static public boolean getStudentIfExistByNo(String no) {
         System.out.println(no);
         return studentMapper.getStudentIfExistByNo(no);
     }
 
-    public void addStudent(Student student) {
+    static public void addStudent(Student student) {
         studentMapper.addStudent(student);
     }
 }

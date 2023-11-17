@@ -5,12 +5,12 @@ import javafx.scene.layout.Pane;
 
 public class KaoqinView implements View {
     @Override
-    public Pane getView() {
-        return null;
+    public String getName() {
+        return "todo";
     }
 
     @Override
-    public String getName() {
-        return null;
+    public Pane getView() {
+        return new Pane();
     }
 }
