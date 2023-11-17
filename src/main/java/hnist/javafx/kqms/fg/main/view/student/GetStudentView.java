@@ -3,10 +3,14 @@ package hnist.javafx.kqms.fg.main.view.student;
 import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.view.View;
 import hnist.javafx.kqms.pojo.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+
+import java.util.Optional;
 
 public class GetStudentView extends View {
     @Override
@@ -71,6 +75,32 @@ public class GetStudentView extends View {
             }
         });
 
+        // 添加按钮到每一行
+        studentIfo.setRowFactory(tv -> {
+            TableRow<Student> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
+                    Student student = row.getItem();
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("操作");
+                    alert.setHeaderText("请选择操作");
+
+                    ButtonType modifyButtonType = new ButtonType("修改");
+                    ButtonType deleteButtonType = new ButtonType("删除");
+                    alert.getButtonTypes().setAll(modifyButtonType, deleteButtonType);
+
+                    Optional<ButtonType> result = alert.showAndWait();
+                    if (result.isPresent() && result.get() == modifyButtonType) {
+                        //TODO
+                        // 显示修改界面
+                    } else if (result.isPresent() && result.get() == deleteButtonType) {
+                        //TODO
+                        // 显示删除界面
+                    }
+                }
+            });
+            return row;
+        });
         return gridPane;
     }
 }
