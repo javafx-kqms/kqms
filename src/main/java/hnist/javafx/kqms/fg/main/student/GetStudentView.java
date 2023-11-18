@@ -92,6 +92,7 @@ public class GetStudentView extends View {
 
             System.out.println(StudentController.getStudentByNoAndName(numberStr,nameStr));
 
+
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
             if(!list.isEmpty()){
                 studentIfo.setItems(list);
