@@ -207,5 +207,4 @@ public class GetStudentView extends View {
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
         gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }
-
 }

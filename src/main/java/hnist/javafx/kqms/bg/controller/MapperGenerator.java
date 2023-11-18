@@ -1,6 +1,7 @@
 package hnist.javafx.kqms.bg.controller;
 
 import hnist.javafx.kqms.bg.mapper.KaoqinMapper;
+import hnist.javafx.kqms.bg.mapper.ManagerMapper;
 import hnist.javafx.kqms.bg.mapper.StudentMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -11,10 +12,9 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class MapperGenerator {
+    static private final SqlSession sqlSession = init();
 
-    private static final SqlSession sqlSession = init();
-
-    private static SqlSession init() {
+    static private SqlSession init() {
         InputStream is = null;
         try {
             is = Resources.getResourceAsStream("mybatis-config.xml");
@@ -26,11 +26,15 @@ public class MapperGenerator {
         return sqlSessionFactory.openSession(true);
     }
 
-    public static StudentMapper getStudentMapper() {
+    static public StudentMapper getStudentMapper() {
         return sqlSession.getMapper(StudentMapper.class);
     }
 
-    public static KaoqinMapper getKaoqinMapper() {
+    static public KaoqinMapper getKaoqinMapper() {
         return sqlSession.getMapper(KaoqinMapper.class);
+    }
+
+    static public ManagerMapper getManagerMapper() {
+        return sqlSession.getMapper(ManagerMapper.class);
     }
 }

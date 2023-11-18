@@ -1,0 +1,10 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hnist.javafx.kqms.bg.mapper.ManagerMapper">
+
+<!--    String getPasswordByUsername(String username);-->
+    <select id="getPasswordByUsername" resultType="string">
+        select `password` from manager
+        where username = #{username}
+    </select>
+</mapper>

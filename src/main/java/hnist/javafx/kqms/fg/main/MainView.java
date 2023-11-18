@@ -32,7 +32,6 @@ public class MainView extends View {
 
     private StackPane getRouterView() {
         StackPane router_view = new StackPane(views[0].getView());
-        router_view.setAlignment(Pos.CENTER);
         router_view.setStyle("-fx-padding: 20px; -fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;");
 
         return router_view;
