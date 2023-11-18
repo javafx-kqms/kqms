@@ -20,7 +20,6 @@ import java.util.Optional;
 public class GetStudentView extends View {
     @Override
     public String getName() {
-        // TODO
         return "操作学生信息";
     }
 
@@ -95,7 +94,6 @@ public class GetStudentView extends View {
             }else{
                 gridPane.add(unfindLabel1,0,4);
             }
-
         });
 
         // 添加按钮到每一行

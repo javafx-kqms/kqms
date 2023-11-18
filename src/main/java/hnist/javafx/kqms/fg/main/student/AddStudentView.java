@@ -17,7 +17,6 @@ import javafx.scene.paint.Color;
 public class AddStudentView extends View {
     @Override
     public String getName() {
-        // TODO
         return "添加学生信息";
     }
 

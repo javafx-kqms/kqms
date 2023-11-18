@@ -7,6 +7,8 @@ public class Student {
     private short age;
     private String className;
 
+    public Student(){}
+
     public Student(String no, String name, String sex, short age , String className){
         this.no = no;
         this.name = name;
@@ -15,9 +17,6 @@ public class Student {
         this.className = className;
     }
 
-    public Student(){
-
-    }
     public String getNo() {
         return no;
     }

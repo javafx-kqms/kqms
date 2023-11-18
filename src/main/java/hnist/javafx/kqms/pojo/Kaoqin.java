@@ -10,9 +10,7 @@ public class Kaoqin {
     private String studentName;
     private String studentNo;
 
-    public Kaoqin(){
-
-    }
+    public Kaoqin(){}
 
     public Kaoqin(Date date, String courseName, byte courseSection, String type, String studentName, String studentNo) {
         this.date = date;
