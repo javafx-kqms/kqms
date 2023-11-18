@@ -2,6 +2,11 @@ CREATE DATABASE kqms;
 
 USE kqms;
 
+CREATE TABLE manager (
+     username VARCHAR(15),
+     `password` VARCHAR(20)
+);
+
 CREATE TABLE student (
      `no` CHAR(11),
      `name` VARCHAR(5),
