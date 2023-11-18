@@ -92,6 +92,7 @@ public class GetStudentView extends View {
 
             System.out.println(StudentController.getStudentByNoAndName(numberStr,nameStr));
 
+
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
             if(!list.isEmpty()){
                 studentIfo.setItems(list);
@@ -163,7 +164,7 @@ public class GetStudentView extends View {
                             String editName =
                                     modifyNameTF.getText().isEmpty() ? student.getName() : modifyNameTF.getText();
                             String editSex =
-                                    comboBox.getValue().isEmpty() ? student.getSex() : comboBox.getValue();
+                                    comboBox.getValue() == null ? student.getSex() : comboBox.getValue();
                             short editAge =
                                     modifyAgeTF.getText().isEmpty() ? student.getAge() : Short.parseShort(modifyAgeTF.getText());
                             String editClassName =
@@ -178,7 +179,6 @@ public class GetStudentView extends View {
                             successAlert.showAndWait();
                         }
                     } else if (result.isPresent() && result.get() == deleteButtonType) {
-                        //删除页面
                         operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
                         operatAlert.setTitle("确认删除");
                         operatAlert.setHeaderText("确定要删除该学生信息吗？" + student.toString());

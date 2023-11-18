@@ -6,10 +6,7 @@ import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -22,7 +19,11 @@ public class AddStudentView extends View {
 
     @Override
     public Pane initView() {
-        Label promptLabel = new Label("请填写必要信息");
+        Label successLabel = new Label("添加成功！");
+        Label repeatLabel = new Label("学号重复！");
+        repeatLabel.setTextFill(Color.RED);
+
+        Label promptLabel = new Label("请填写必要学生信息");
         Label studentNumberLabel = new Label("学号");
         TextField studentInfoNumber = new TextField();
         studentInfoNumber.setPromptText("不超过11位");
@@ -66,18 +67,20 @@ public class AddStudentView extends View {
 
         //提取输入框中的学生信息
         addStudentInfoButton.setOnAction(e -> {
+            removeLabelFromGridPane(gridPane,successLabel);
+            removeLabelFromGridPane(gridPane,repeatLabel);
 
             //与数据库中的学号进行对比
             if (StudentController.getStudentIfExistByNo(studentInfoNumber.getText())) {
                 //不重复则填入数据库
-                StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(), comboBox.getValue(), Short.parseShort(studentInfoAge.getText()), studentInfoClass.getText()));
-                Label successLabel = new Label("添加成功！");
+                StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(),
+                                                            comboBox.getValue(), Short.parseShort(studentInfoAge.getText()),
+                                                                studentInfoClass.getText()));
+
                 gridPane.add(successLabel, 2, 7);
 
             } else {
                 //学号重复
-                Label repeatLabel = new Label("学号重复！");
-                repeatLabel.setTextFill(Color.RED);
                 gridPane.add(repeatLabel, 1, 7);
 
             }
@@ -88,8 +91,9 @@ public class AddStudentView extends View {
             studentInfoClass.clear();
         });
 
-
-        // TODO
         return gridPane;
+    }
+    private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
+        gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }
 }
