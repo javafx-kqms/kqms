@@ -90,8 +90,10 @@ public class GetStudentView extends View {
                 nameStr = studentName.getText();
             }
 
+            System.out.println(StudentController.getStudentByNoAndName(numberStr,nameStr));
+
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
-            if(!StudentController.getStudentIfExistByNo(numberStr)){
+            if(!list.isEmpty()){
                 studentIfo.setItems(list);
             }else{
                 gridPane.add(unfindLabel,0,4);
