@@ -17,6 +17,17 @@ public class Student {
         this.className = className;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "no='" + no + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", age=" + age +
+                ", className='" + className + '\'' +
+                '}';
+    }
+
     public String getNo() {
         return no;
     }

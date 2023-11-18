@@ -32,9 +32,7 @@ public class GetStudentView extends View {
         Button searchButton = new Button("搜索");
         Label label = new Label("若没有填入搜索信息则显示全部学生信息");
         Label unfindLabel = new Label("该学生信息不存在！");
-        Label unfindLabel1 = new Label("该学生信息不存在！");
         unfindLabel.setTextFill(Color.RED);
-        unfindLabel1.setTextFill(Color.RED);
 
         GridPane gridPane = new GridPane();
         gridPane.setVgap(10);
@@ -75,6 +73,7 @@ public class GetStudentView extends View {
         GridPane.setConstraints(studentIfo,0,3,5,1);
 
         searchButton.setOnAction(e->{
+            removeLabelFromGridPane(gridPane,unfindLabel);
             String numberStr;
             if(studentNumber.getText().isEmpty()){
                  numberStr = null;
@@ -92,7 +91,7 @@ public class GetStudentView extends View {
             if(!StudentController.getStudentIfExistByNo(numberStr)){
                 studentIfo.setItems(list);
             }else{
-                gridPane.add(unfindLabel1,0,4);
+                gridPane.add(unfindLabel,0,4);
             }
         });
 
@@ -102,21 +101,34 @@ public class GetStudentView extends View {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     Student student = row.getItem();
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                    alert.setTitle("操作");
-                    alert.setHeaderText("请选择操作");
+                    Alert operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    operatAlert.setTitle("操作");
+                    operatAlert.setHeaderText("请选择操作");
 
                     ButtonType modifyButtonType = new ButtonType("修改");
                     ButtonType deleteButtonType = new ButtonType("删除");
-                    alert.getButtonTypes().setAll(modifyButtonType, deleteButtonType);
-
-                    Optional<ButtonType> result = alert.showAndWait();
+                    operatAlert.getButtonTypes().setAll(modifyButtonType, deleteButtonType);
+                    Optional<ButtonType> result = operatAlert.showAndWait();
                     if (result.isPresent() && result.get() == modifyButtonType) {
                         //TODO
                         // 显示修改界面
                     } else if (result.isPresent() && result.get() == deleteButtonType) {
-                        //TODO
-                        // 显示删除界面
+                        operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                        operatAlert.setTitle("确认删除");
+                        operatAlert.setHeaderText("确定要删除该学生信息吗？" + student.toString());
+                        operatAlert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+                        Optional<ButtonType> confirmResult = operatAlert.showAndWait();
+                        if (confirmResult.isPresent() && confirmResult.get() == ButtonType.YES) {
+                            StudentController.deleteStudent(student.getNo());
+                            operatAlert = new Alert(Alert.AlertType.INFORMATION);
+                            operatAlert.setTitle("删除成功");
+                            operatAlert.setHeaderText(null);
+                            operatAlert.setContentText("数据已成功删除！");
+                            operatAlert.showAndWait();
+                            studentIfo.getItems().clear();
+                        }
+                    } else{
+                        operatAlert.close();
                     }
                 }
             });
@@ -124,4 +136,8 @@ public class GetStudentView extends View {
         });
         return gridPane;
     }
+    private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
+        gridPane.getChildren().removeIf(node -> node == labelToRemove);
+    }
+
 }
