@@ -5,6 +5,7 @@ import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -12,6 +13,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TableColumn;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 import javafx.util.converter.ShortStringConverter;
 
 
@@ -108,11 +111,72 @@ public class GetStudentView extends View {
                     ButtonType modifyButtonType = new ButtonType("修改");
                     ButtonType deleteButtonType = new ButtonType("删除");
                     operatAlert.getButtonTypes().setAll(modifyButtonType, deleteButtonType);
+                    operatAlert.initModality(Modality.APPLICATION_MODAL);
+                    operatAlert.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
                     Optional<ButtonType> result = operatAlert.showAndWait();
                     if (result.isPresent() && result.get() == modifyButtonType) {
-                        //TODO
-                        // 显示修改界面
+                        //修改页面
+                        Alert modifyDialog = new Alert(Alert.AlertType.INFORMATION);
+                        modifyDialog.setTitle("修改");
+                        modifyDialog.setHeaderText("要修改的学生信息"+student.toString()+"\n"+"学号不可修改!");
+
+                        Label confirmLabel = new Label("请填入修改后的信息");
+                        Label modifyNameLabel = new Label("姓名");
+                        TextField modifyNameTF = new TextField();
+                        Label modifySexLabel = new Label("性别");
+                        ObservableList<String> options = FXCollections.observableArrayList(
+                                "男", "女"
+                        );
+                        ComboBox<String> comboBox = new ComboBox<>(options);
+                        comboBox.setPromptText("选择性别");
+                        Label modifyAgeLabel = new Label("年龄");
+                        TextField modifyAgeTF = new TextField();
+                        Label modifyClassNameLabel = new Label("班级");
+                        TextField modifyClassNameTF = new TextField();
+                        modifyClassNameTF.setPromptText("计科21-2BJ");
+
+                        GridPane modifyPane = new GridPane();
+                        modifyPane.setHgap(10);
+                        modifyPane.setVgap(10);
+                        modifyPane.add(confirmLabel,1,0);
+                        modifyPane.add(modifyNameLabel,0,1);
+                        modifyPane.add(modifyNameTF,1,1);
+                        modifyPane.add(modifySexLabel,0,2);
+                        modifyPane.add(comboBox,1,2);
+                        modifyPane.add(modifyAgeLabel,0,3);
+                        modifyPane.add(modifyAgeTF,1,3);
+                        modifyPane.add(modifyClassNameLabel,0,4);
+                        modifyPane.add(modifyClassNameTF,1,4);
+                        modifyPane.setAlignment(Pos.CENTER);
+
+                        modifyDialog.getDialogPane().setContent(modifyPane);
+
+                        ButtonType submitButtonType = new ButtonType("提交");
+                        modifyDialog.getButtonTypes().setAll(submitButtonType);
+
+
+                        Optional<ButtonType> submitResult = modifyDialog.showAndWait();
+                        if (submitResult.isPresent() && submitResult.get() == submitButtonType) {
+                            String editName =
+                                    modifyNameTF.getText().isEmpty() ? student.getName() : modifyNameTF.getText();
+                            String editSex =
+                                    comboBox.getValue().isEmpty() ? student.getSex() : comboBox.getValue();
+                            short editAge =
+                                    modifyAgeTF.getText().isEmpty() ? student.getAge() : Short.parseShort(modifyAgeTF.getText());
+                            String editClassName =
+                                    modifyClassNameTF.getText().isEmpty() ? student.getClassName() : modifyClassNameTF.getText();
+
+                            Student editStudent = new Student(student.getNo(),editName,editSex,editAge,editClassName);
+                            // 如果用户点击了"提交"按钮，更新学生的信息
+                            StudentController.modifyStudent(editStudent);
+                            Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
+                            successAlert.setTitle("修改成功");
+                            successAlert.setHeaderText("修改学生信息成功！");
+                            successAlert.showAndWait();
+                        }
                     } else if (result.isPresent() && result.get() == deleteButtonType) {
+                        //删除页面
                         operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
                         operatAlert.setTitle("确认删除");
                         operatAlert.setHeaderText("确定要删除该学生信息吗？" + student.toString());
@@ -125,17 +189,19 @@ public class GetStudentView extends View {
                             operatAlert.setHeaderText(null);
                             operatAlert.setContentText("数据已成功删除！");
                             operatAlert.showAndWait();
-                            studentIfo.getItems().clear();
+
                         }
-                    } else{
-                        operatAlert.close();
                     }
+                    studentIfo.getItems().clear();
+
                 }
             });
             return row;
         });
         return gridPane;
     }
+
+    //移除学生表下红色提示文本
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
         gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }
