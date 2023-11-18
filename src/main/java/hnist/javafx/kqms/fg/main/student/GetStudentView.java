@@ -75,6 +75,7 @@ public class GetStudentView extends View {
         gridPane.add(studentIfo,0,3);
         GridPane.setConstraints(studentIfo,0,3,5,1);
 
+        //查询学生信息
         searchButton.setOnAction(e->{
             removeLabelFromGridPane(gridPane,unfindLabel);
             String numberStr;
@@ -101,6 +102,7 @@ public class GetStudentView extends View {
             }
         });
 
+        //修改和删除学生信息
         // 添加按钮到每一行
         studentIfo.setRowFactory(tv -> {
             TableRow<Student> row = new TableRow<>();
