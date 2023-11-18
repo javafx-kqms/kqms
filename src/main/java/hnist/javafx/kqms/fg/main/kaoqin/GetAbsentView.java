@@ -2,7 +2,6 @@ package hnist.javafx.kqms.fg.main.kaoqin;
 
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Kaoqin;
-import hnist.javafx.kqms.pojo.Student;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
