@@ -67,27 +67,27 @@ public class AddKaoqinView extends View {
         gridPane.add(absentTypeLabel, 1, 5);
         gridPane.add(comboBox, 2, 5);
         gridPane.add(studentNoLabel, 1, 6);
-        gridPane.add(studentNoTF,2,6);
-        gridPane.add(addAbsentInfoButton,1,7);
+        gridPane.add(studentNoTF, 2, 6);
+        gridPane.add(addAbsentInfoButton, 1, 7);
         GridPane.setConstraints(addAbsentInfoButton, 1, 7, 2, 1);
 
         gridPane.setAlignment(Pos.CENTER);
 
-        addAbsentInfoButton.setOnAction(e->{
-            removeLabelFromGridPane(gridPane,confirmLabel);
-            removeLabelFromGridPane(gridPane,confirmLabel2);
+        addAbsentInfoButton.setOnAction(e -> {
+            removeLabelFromGridPane(gridPane, confirmLabel);
+            removeLabelFromGridPane(gridPane, confirmLabel2);
             try {
-                if(KaoqinController.getKaoqinIfExist(getStringToData(absentDateTF.getText()),Byte.parseByte(courseSectionTF.getText()),studentNoTF.getText())){
+                if (KaoqinController.getKaoqinIfExist(getStringToData(absentDateTF.getText()), Byte.parseByte(courseSectionTF.getText()), studentNoTF.getText())) {
                     KaoqinController.addKaoqin(new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
-                                                            Byte.parseByte(courseSectionTF.getText()),comboBox.getValue(),
-                                                                studentNameTF.getText(),studentNoTF.getText()));
+                            Byte.parseByte(courseSectionTF.getText()), comboBox.getValue(),
+                            studentNameTF.getText(), studentNoTF.getText()));
 
-                    gridPane.add(confirmLabel,2,8);
+                    gridPane.add(confirmLabel, 2, 8);
                     System.out.println("学生信息" + new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
-                            Byte.parseByte(courseSectionTF.getText()),comboBox.getValue(),
-                            studentNameTF.getText(),studentNoTF.getText()));
+                            Byte.parseByte(courseSectionTF.getText()), comboBox.getValue(),
+                            studentNameTF.getText(), studentNoTF.getText()));
                 } else {
-                    gridPane.add(confirmLabel2,1,8);
+                    gridPane.add(confirmLabel2, 1, 8);
                 }
             } catch (ParseException ex) {
                 throw new RuntimeException(ex);
@@ -108,6 +108,7 @@ public class AddKaoqinView extends View {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         return sdf.parse(str);
     }
+
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
         gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }
