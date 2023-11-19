@@ -86,6 +86,9 @@ public class AddKaoqinView extends View {
                                                                 studentNameTF.getText(),studentNoTF.getText()));
 
                     gridPane.add(confirmLabel,2,8);
+                    System.out.println("学生信息" + new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
+                            Byte.parseByte(courseSectionTF.getText()),comboBox.getValue(),
+                            studentNameTF.getText(),studentNoTF.getText()));
                 } else {
                     gridPane.add(confirmLabel2,1,8);
                 }

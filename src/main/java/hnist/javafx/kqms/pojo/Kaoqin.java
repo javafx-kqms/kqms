@@ -5,17 +5,17 @@ import java.util.Date;
 public class Kaoqin {
     private Date date;//缺课日期
     private String courseName;//课程名称
-    private byte courseSection;//第几节课
+    private byte section;//第几节课
     private String type;//缺课类型
     private String studentName;
     private String studentNo;
 
     public Kaoqin(){}
 
-    public Kaoqin(Date date, String courseName, byte courseSection, String type, String studentName, String studentNo) {
+    public Kaoqin(Date date, String courseName, byte section, String type, String studentName, String studentNo) {
         this.date = date;
         this.courseName = courseName;
-        this.courseSection = courseSection;
+        this.section = section;
         this.type = type;
         this.studentName = studentName;
         this.studentNo = studentNo;
@@ -37,12 +37,12 @@ public class Kaoqin {
         this.courseName = courseName;
     }
 
-    public byte getCourseSection() {
-        return courseSection;
+    public byte getSection() {
+        return section;
     }
 
-    public void setCourseSection(byte courseSection) {
-        this.courseSection = courseSection;
+    public void setSection(byte section) {
+        this.section = section;
     }
 
     public String getType() {

@@ -1,6 +1,7 @@
 package hnist.javafx.kqms.fg.main;
 
 import hnist.javafx.kqms.fg.main.hello.HelloView;
+import hnist.javafx.kqms.fg.main.kaoqin.AddKaoqinView;
 import hnist.javafx.kqms.fg.main.student.AddStudentView;
 import hnist.javafx.kqms.fg.main.student.GetStudentView;
 import javafx.collections.ObservableList;
@@ -12,7 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 public class MainView extends View {
-    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView()};
+    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new AddKaoqinView()};
 
     private final Pane routerView = getRouterView();
 
