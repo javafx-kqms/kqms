@@ -2,6 +2,7 @@ package hnist.javafx.kqms.fg.main.kaoqin;
 
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Kaoqin;
+import hnist.javafx.kqms.pojo.Student;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -88,9 +89,25 @@ public class GetAbsentView extends View {
                 studentNameStr = studentNameTF.getText();
             }
 
+            //TODO
         });
 
         //编辑缺课信息
+        kaoqinIfo.setRowFactory(tv->{
+            TableRow<Kaoqin> row = new TableRow<>();
+            row.setOnMouseClicked(event->{
+
+            });
+
+
+
+
+
+
+
+
+            return row;
+        });
 
 
         return gridPane;
