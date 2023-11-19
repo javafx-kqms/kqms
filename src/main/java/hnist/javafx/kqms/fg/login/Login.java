@@ -1,5 +1,6 @@
 package hnist.javafx.kqms.fg.login;
 
+import hnist.javafx.kqms.KqmsApplication;
 import hnist.javafx.kqms.bg.controller.ManagerController;
 import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
@@ -17,12 +18,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Login extends View {
-    private final Stage stage;
-
-    public Login(Stage scene) {
-        this.stage = scene;
-    }
-
     @Override
     public String getName() {
         return null;
@@ -80,13 +75,13 @@ public class Login extends View {
         inputGroup.add(passwordLabel, 0, 1);
         inputGroup.add(passwordField, 1, 1, 5, 1);
         inputGroup.add(loginButton, 0, 2, 6, 1);
-        inputGroup.add(errorLabel, 0, 3);
+        inputGroup.add(errorLabel, 0, 3, 6, 1);
 
         loginButton.setOnAction(e -> {
             String username = userNameField.getText();
             String password = passwordField.getText();
             if (ManagerController.login(username, password)) {
-                stage.setScene(new Scene(new MainView().getView(), 1000, 600));
+                KqmsApplication.changeRoot(new MainView().getView());
             } else {
                 errorLabel.setText("账号或密码错误");
             }

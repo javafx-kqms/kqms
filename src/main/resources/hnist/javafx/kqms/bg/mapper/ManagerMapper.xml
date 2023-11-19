@@ -2,9 +2,9 @@
 
 <mapper namespace="hnist.javafx.kqms.bg.mapper.ManagerMapper">
 
-<!--    String getPasswordByUsername(String username);-->
-    <select id="getPasswordByUsername" resultType="string">
+<!--    boolean login(@Param("username") String username, @Param("password") String password);-->
+    <select id="login" resultType="boolean">
         select COUNT(*) = 1 from manager
-        where username = #{username} `and password` = #{password}
+        where username = #{username} and `password` = #{password}
     </select>
 </mapper>
