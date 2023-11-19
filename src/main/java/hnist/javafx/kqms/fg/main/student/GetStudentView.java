@@ -14,7 +14,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Modality;
-import javafx.stage.StageStyle;
 import javafx.util.converter.ShortStringConverter;
 
 
@@ -91,10 +90,10 @@ public class GetStudentView extends View {
                 nameStr = studentName.getText();
             }
 
-            System.out.println(StudentController.getStudentByNoAndName(numberStr,nameStr));
+            System.out.println(StudentController.getStudent(numberStr,nameStr));
 
 
-            ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudentByNoAndName(numberStr,nameStr));
+            ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudent(numberStr,nameStr));
             if(!list.isEmpty()){
                 studentIfo.setItems(list);
             }else{

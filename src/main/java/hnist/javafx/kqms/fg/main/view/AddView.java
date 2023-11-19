@@ -105,7 +105,7 @@ public class AddView extends View {
         addStudentInfoButton.setOnAction(e -> {
 
             //与数据库中的学号进行对比
-            if (studentController.getStudentIfExistByNo(studentInfoNumber.getText())) {
+            if (studentController.getStudentIfExist(studentInfoNumber.getText())) {
                 //不重复则填入数据库
                 studentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(), studentInfoSex.getText(), Short.parseShort(studentInfoAge.getText()), studentInfoClass.getText()));
             } else {
@@ -161,7 +161,7 @@ public class AddView extends View {
                 pe.fillInStackTrace();
             }
 
-            if(kaoqinController.getKaoqinIfExistByDateAndSection(date,Byte.parseByte(absentInfoCourseSection.getText()))){
+            if(kaoqinController.getKaoqinIfExist(date,Byte.parseByte(absentInfoCourseSection.getText()))){
                 kaoqinController.addKaoqin(new Kaoqin(date,absentInfoCourseName.getText(),Byte.parseByte(absentInfoCourseSection.getText()),absentInfoStudentName.getText(),comboBox.getSelectionModel().toString(),studentInfoName.getText()));
             }else{
                 //信息重复

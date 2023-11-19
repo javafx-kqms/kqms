@@ -4,6 +4,7 @@ import hnist.javafx.kqms.bg.mapper.KaoqinMapper;
 import hnist.javafx.kqms.pojo.Kaoqin;
 
 import java.util.Date;
+import java.util.List;
 
 public class KaoqinController {
     static private final KaoqinMapper kaoqinMapper = MapperGenerator.getKaoqinMapper();
@@ -12,7 +13,15 @@ public class KaoqinController {
         kaoqinMapper.addKaoqin(kaoqin);
     }
 
-    static public boolean getKaoqinIfExistByDateAndSection(Date date, byte section) {
-        return kaoqinMapper.getKaoqinIfExistByDateAndSection(date, section);
+    static public void deleteKaoqin(Kaoqin kaoqin) {
+        kaoqinMapper.deleteKaoqin(kaoqin);
+    }
+
+    static public boolean getKaoqinIfExist(Date date, byte section, String studentNo) {
+        return kaoqinMapper.getKaoqinIfExist(date, section, studentNo);
+    }
+
+    static public List<Kaoqin> getKaoqin(String courseName, String studentName) {
+        return kaoqinMapper.getKaoqin(courseName, studentName);
     }
 }

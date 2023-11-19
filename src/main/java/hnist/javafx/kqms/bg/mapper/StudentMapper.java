@@ -11,7 +11,7 @@ public interface StudentMapper {
 
     void modifyStudent(Student student);
 
-    boolean getStudentIfExistByNo(String no);
+    boolean getStudentIfExist(String no);
 
-    List<Student> getStudentByNoAndName(String no, String name);
+    List<Student> getStudent(String no, String name);
 }

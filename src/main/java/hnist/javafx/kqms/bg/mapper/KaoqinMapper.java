@@ -3,10 +3,14 @@ package hnist.javafx.kqms.bg.mapper;
 import hnist.javafx.kqms.pojo.Kaoqin;
 
 import java.util.Date;
+import java.util.List;
 
 public interface KaoqinMapper {
-
-    boolean getKaoqinIfExistByDateAndSection(Date date, byte section);
-
     void addKaoqin(Kaoqin kaoqin);
+
+    void deleteKaoqin(Kaoqin kaoqin);
+
+    boolean getKaoqinIfExist(Date date, byte section, String studentNo);
+
+    List<Kaoqin> getKaoqin(String courseName, String studentName);
 }

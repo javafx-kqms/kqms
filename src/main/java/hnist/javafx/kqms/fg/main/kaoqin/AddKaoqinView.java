@@ -1,10 +1,8 @@
 package hnist.javafx.kqms.fg.main.kaoqin;
 
 import hnist.javafx.kqms.bg.controller.KaoqinController;
-import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Kaoqin;
-import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
@@ -16,7 +14,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -80,7 +77,7 @@ public class AddKaoqinView extends View {
             removeLabelFromGridPane(gridPane,confirmLabel);
             removeLabelFromGridPane(gridPane,confirmLabel2);
             try {
-                if(KaoqinController.getKaoqinIfExistByDateAndSection(getStringToData(absentDateTF.getText()),Byte.parseByte(courseSectionTF.getText()))){
+                if(KaoqinController.getKaoqinIfExist(getStringToData(absentDateTF.getText()),Byte.parseByte(courseSectionTF.getText()))){
                     KaoqinController.addKaoqin(new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
                                                             Byte.parseByte(courseSectionTF.getText()),comboBox.getValue(),
                                                                 studentNameTF.getText(),studentNoTF.getText()));

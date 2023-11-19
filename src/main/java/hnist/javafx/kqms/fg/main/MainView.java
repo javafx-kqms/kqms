@@ -60,7 +60,7 @@ public class MainView extends View {
 
     private StackPane getMain() {
         Pane borderPane = new Pane();
-        borderPane.setStyle(" -fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;");
+        borderPane.setStyle("-fx-border-color: black; -fx-border-width: 2px; -fx-border-radius: 5px;");
 
         StackPane main = new StackPane(borderPane, routerView);
         main.setStyle("-fx-padding: 20px;");

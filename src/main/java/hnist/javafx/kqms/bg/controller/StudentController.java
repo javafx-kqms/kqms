@@ -20,11 +20,11 @@ public class StudentController {
         studentMapper.modifyStudent(student);
     }
 
-    static public boolean getStudentIfExistByNo(String no) {
-        return studentMapper.getStudentIfExistByNo(no);
+    static public boolean getStudentIfExist(String no) {
+        return studentMapper.getStudentIfExist(no);
     }
 
-    static public List<Student> getStudentByNoAndName(String no, String name) {
-        return studentMapper.getStudentByNoAndName(no, name);
+    static public List<Student> getStudent(String no, String name) {
+        return studentMapper.getStudent(no, name);
     }
 }

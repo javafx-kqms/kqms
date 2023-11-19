@@ -2,15 +2,34 @@
 
 <mapper namespace="hnist.javafx.kqms.bg.mapper.KaoqinMapper">
 
-<!--    boolean getKaoqinIfExistByDateAndSection(Date date, byte courseSection);-->
-    <select id="getKaoqinIfExistByDateAndSection" resultType="boolean">
-        select COUNT(*) = 0 from kaoqin
-        where date = #{date} and section = #{section}
-    </select>
-
 <!--    void addKaoqin(Kaoqin kaoqin);-->
     <insert id="addKaoqin">
         insert into kaoqin values
         (#{date}, #{courseName}, #{section}, #{type}, #{studentName}, #{studentNo})
     </insert>
+
+<!--    void deleteKaoqin(Kaoqin kaoqin);-->
+    <delete id="deleteKaoqin">
+        delete from kaoqin
+        where date = #{date} and section = #{section} and studentNo = #{studentNo}
+    </delete>
+
+<!--    boolean getKaoqinIfExist(Date date, byte section, String studentNo);-->
+    <select id="getKaoqinIfExist" resultType="boolean">
+        select COUNT(*) = 0 from kaoqin
+        where date = #{date} and section = #{section} and student_no = #{studentNo}
+    </select>
+
+<!--    List<Kaoqin> getKaoqin(String courseName, String studentName);-->
+    <select id="getKaoqin" resultType="Kaoqin">
+        select * from kaoqin
+        <where>
+            <if test="courseName != null">
+                courseName = #{courseName}
+            </if>
+            <if test="studentName != null">
+                and studentName = #{studentName}
+            </if>
+        </where>
+    </select>
 </mapper>

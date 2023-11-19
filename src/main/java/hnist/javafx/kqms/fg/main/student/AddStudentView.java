@@ -71,7 +71,7 @@ public class AddStudentView extends View {
             removeLabelFromGridPane(gridPane,repeatLabel);
 
             //与数据库中的学号进行对比
-            if (StudentController.getStudentIfExistByNo(studentInfoNumber.getText())) {
+            if (StudentController.getStudentIfExist(studentInfoNumber.getText())) {
                 //不重复则填入数据库
                 StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(),
                                                             comboBox.getValue(), Short.parseShort(studentInfoAge.getText()),
