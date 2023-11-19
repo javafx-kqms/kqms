@@ -202,6 +202,7 @@ public class GetStudentView extends View {
             });
             return row;
         });
+        gridPane.setAlignment(Pos.CENTER);
         return gridPane;
     }
 
