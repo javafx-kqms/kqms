@@ -1,23 +1,29 @@
 package hnist.javafx.kqms.fg.main.kaoqin;
 
+import hnist.javafx.kqms.bg.controller.KaoqinController;
+import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
 import hnist.javafx.kqms.pojo.Kaoqin;
 import hnist.javafx.kqms.pojo.Student;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.util.converter.ByteStringConverter;
 import javafx.util.converter.DateStringConverter;
 
 import java.util.Date;
+import java.util.Optional;
 
 public class GetAbsentView extends View {
     @Override
     public String getName() {
-        return "操作学生信息";
+        return "操作缺课信息";
     }
 
     @Override
@@ -28,7 +34,7 @@ public class GetAbsentView extends View {
         TextField studentNameTF = new TextField();
         Button searchButton = new Button("搜索");
         Label label = new Label("若没有填入搜索信息则显示全部缺课信息");
-        Label unfindLabel = new Label("该学生信息不存在！");
+        Label unfindLabel = new Label("该缺课信息不存在！");
         unfindLabel.setTextFill(Color.RED);
 
         GridPane gridPane = new GridPane();
@@ -56,7 +62,7 @@ public class GetAbsentView extends View {
         courseNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         courseNameColumn.setCellValueFactory(new PropertyValueFactory<>("courseName"));
         courseSectionColumn.setCellFactory(TextFieldTableCell.forTableColumn(new ByteStringConverter()));
-        courseSectionColumn.setCellValueFactory(new PropertyValueFactory<>("courseSection"));
+        courseSectionColumn.setCellValueFactory(new PropertyValueFactory<>("section"));
         typeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         studentNoColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -89,14 +95,50 @@ public class GetAbsentView extends View {
                 studentNameStr = studentNameTF.getText();
             }
 
-            //TODO
+            ObservableList<Kaoqin> list = FXCollections.observableArrayList(KaoqinController.getKaoqin(courseStr,studentNameStr));
+            if(!list.isEmpty()){
+                kaoqinIfo.setItems(list);
+            }else{
+                gridPane.add(unfindLabel,0,4);
+            }
         });
 
-        //编辑缺课信息
+        //删除缺课信息
         kaoqinIfo.setRowFactory(tv->{
             TableRow<Kaoqin> row = new TableRow<>();
             row.setOnMouseClicked(event->{
+                if (event.getClickCount() == 2 && !row.isEmpty()){
+                    Kaoqin kaoqin = new Kaoqin();
+                    //双击弹出操作框，可进行删除操作
+                    Alert operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                    operatAlert.setTitle("删除");
+                    operatAlert.setHeaderText("删除缺课信息");
 
+                    ButtonType deleteButtonType = new ButtonType("删除");
+                    operatAlert.getButtonTypes().setAll(deleteButtonType);
+                    operatAlert.initModality(Modality.APPLICATION_MODAL);
+                    operatAlert.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+
+                    Optional<ButtonType> result = operatAlert.showAndWait();
+                    if(result.isPresent() && result.get() == deleteButtonType) {
+                        //删除界面
+                        operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                        operatAlert.setTitle("确认删除");
+                        operatAlert.setHeaderText("确定要删除该缺课信息吗？" + kaoqin.toString());
+                        operatAlert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+                        Optional<ButtonType> confirmResult = operatAlert.showAndWait();
+                        if (confirmResult.isPresent() && confirmResult.get() == ButtonType.YES) {
+                            //TODO 存疑
+                            KaoqinController.deleteKaoqin(kaoqin);
+                            operatAlert = new Alert(Alert.AlertType.INFORMATION);
+                            operatAlert.setTitle("删除成功");
+                            operatAlert.setHeaderText(null);
+                            operatAlert.setContentText("数据已成功删除！");
+                            operatAlert.showAndWait();
+
+                        }
+                    }
+                }
             });
 
 

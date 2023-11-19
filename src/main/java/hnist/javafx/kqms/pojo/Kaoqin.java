@@ -21,6 +21,18 @@ public class Kaoqin {
         this.studentNo = studentNo;
     }
 
+    @Override
+    public String toString() {
+        return "Kaoqin{" +
+                "date=" + date +
+                ", courseName='" + courseName + '\'' +
+                ", section=" + section +
+                ", type='" + type + '\'' +
+                ", studentName='" + studentName + '\'' +
+                ", studentNo='" + studentNo + '\'' +
+                '}';
+    }
+
     public Date getDate() {
         return date;
     }

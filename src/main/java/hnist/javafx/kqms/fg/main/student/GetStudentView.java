@@ -90,9 +90,6 @@ public class GetStudentView extends View {
                 nameStr = studentName.getText();
             }
 
-            System.out.println(StudentController.getStudent(numberStr,nameStr));
-
-
             ObservableList<Student> list = FXCollections.observableArrayList(StudentController.getStudent(numberStr,nameStr));
             if(!list.isEmpty()){
                 studentIfo.setItems(list);
@@ -108,6 +105,7 @@ public class GetStudentView extends View {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && !row.isEmpty()) {
                     Student student = row.getItem();
+                    //双击弹出操作框，可进行删除和修改操作
                     Alert operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
                     operatAlert.setTitle("操作");
                     operatAlert.setHeaderText("请选择操作");
@@ -158,7 +156,6 @@ public class GetStudentView extends View {
 
                         ButtonType submitButtonType = new ButtonType("提交");
                         modifyDialog.getButtonTypes().setAll(submitButtonType);
-
 
                         Optional<ButtonType> submitResult = modifyDialog.showAndWait();
                         if (submitResult.isPresent() && submitResult.get() == submitButtonType) {

@@ -13,7 +13,7 @@ public class KqmsApplication extends Application {
     @Override
     public void start(Stage stage) {
         scene = new Scene(new Login().getView(), 1000, 600);
-//        scene = new Scene(new MainView().getView(), 1000, 600);
+        scene = new Scene(new MainView().getView(), 1000, 600);
         stage.setScene(scene);
         stage.show();
     }

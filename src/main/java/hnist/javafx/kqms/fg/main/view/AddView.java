@@ -161,7 +161,7 @@ public class AddView extends View {
                 pe.fillInStackTrace();
             }
 
-            if(kaoqinController.getKaoqinIfExist(date,Byte.parseByte(absentInfoCourseSection.getText()))){
+            if(kaoqinController.getKaoqinIfExist(date,Byte.parseByte(absentInfoCourseSection.getText()),absentInfoStudentNumber.getText())){
                 kaoqinController.addKaoqin(new Kaoqin(date,absentInfoCourseName.getText(),Byte.parseByte(absentInfoCourseSection.getText()),absentInfoStudentName.getText(),comboBox.getSelectionModel().toString(),studentInfoName.getText()));
             }else{
                 //信息重复

@@ -77,7 +77,7 @@ public class AddKaoqinView extends View {
             removeLabelFromGridPane(gridPane,confirmLabel);
             removeLabelFromGridPane(gridPane,confirmLabel2);
             try {
-                if(KaoqinController.getKaoqinIfExist(getStringToData(absentDateTF.getText()),Byte.parseByte(courseSectionTF.getText()))){
+                if(KaoqinController.getKaoqinIfExist(getStringToData(absentDateTF.getText()),Byte.parseByte(courseSectionTF.getText()),studentNoTF.getText())){
                     KaoqinController.addKaoqin(new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
                                                             Byte.parseByte(courseSectionTF.getText()),comboBox.getValue(),
                                                                 studentNameTF.getText(),studentNoTF.getText()));
