@@ -25,10 +25,10 @@
         select * from kaoqin
         <where>
             <if test="courseName != null">
-                courseName = #{courseName}
+                course_name = #{courseName}
             </if>
             <if test="studentName != null">
-                and studentName = #{studentName}
+                and student_name = #{studentName}
             </if>
         </where>
     </select>
