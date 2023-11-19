@@ -4,7 +4,7 @@
 
 <!--    String getPasswordByUsername(String username);-->
     <select id="getPasswordByUsername" resultType="string">
-        select `password` from manager
-        where username = #{username}
+        select COUNT(*) = 1 from manager
+        where username = #{username} `and password` = #{password}
     </select>
 </mapper>

@@ -3,7 +3,6 @@ package hnist.javafx.kqms.fg.login;
 import hnist.javafx.kqms.bg.controller.ManagerController;
 import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
-import javafx.animation.ScaleTransition;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class Login extends View {
     private final Stage stage;
@@ -78,17 +76,16 @@ public class Login extends View {
         Button loginButton = getStyledLoginButton();
 
         inputGroup.add(usernameLabel, 0, 0);
-        inputGroup.add(userNameField, 1, 0, 4, 1);
+        inputGroup.add(userNameField, 1, 0, 5, 1);
         inputGroup.add(passwordLabel, 0, 1);
-        inputGroup.add(passwordField, 1, 1, 4, 1);
-        inputGroup.add(errorLabel, 1, 2, 4, 1);
-        inputGroup.add(loginButton, 4, 3, 3, 1);
+        inputGroup.add(passwordField, 1, 1, 5, 1);
+        inputGroup.add(loginButton, 0, 2, 6, 1);
+        inputGroup.add(errorLabel, 0, 3);
 
         loginButton.setOnAction(e -> {
             String username = userNameField.getText();
             String password = passwordField.getText();
-            String password1 = ManagerController.getPasswordByUsername(username);
-            if (password1 != null && password1.equals(password)) {
+            if (ManagerController.login(username, password)) {
                 stage.setScene(new Scene(new MainView().getView(), 1000, 600));
             } else {
                 errorLabel.setText("账号或密码错误");
@@ -129,6 +126,7 @@ public class Login extends View {
 
     private Button getStyledLoginButton() {
         Button button = new Button("登录");
+        button.setPrefWidth(300);
         String baseStyle = "-fx-background-color: #2196F3; -fx-font-size: 14px; -fx-background-radius: 5px;";
 
         button.setStyle(baseStyle);
