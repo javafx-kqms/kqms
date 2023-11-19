@@ -18,8 +18,8 @@ CREATE TABLE student (
 CREATE TABLE kaoqin (
     `date` DATE,
     course_name VARCHAR(10),
-    course_section TINYINT,
-    course_type ENUM('迟到', '早退', '请假', '旷课'),
+    section TINYINT,
+    `type` ENUM('迟到', '早退', '请假', '旷课'),
     student_name VARCHAR(5),
     student_no CHAR(11)
 );

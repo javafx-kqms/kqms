@@ -6,7 +6,7 @@ import java.util.Date;
 
 public interface KaoqinMapper {
 
-    boolean getKaoqinIfExistByDateAndSection(Date date, byte courseSection);
+    boolean getKaoqinIfExistByDateAndSection(Date date, byte section);
 
     void addKaoqin(Kaoqin kaoqin);
 }

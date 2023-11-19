@@ -1,7 +1,6 @@
 package hnist.javafx.kqms.bg.mapper;
 
 import hnist.javafx.kqms.pojo.Student;
-import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,5 +13,5 @@ public interface StudentMapper {
 
     boolean getStudentIfExistByNo(String no);
 
-    List<Student> getStudentByNoAndName(@Param("no") String no, @Param("name") String name);
+    List<Student> getStudentByNoAndName(String no, String name);
 }

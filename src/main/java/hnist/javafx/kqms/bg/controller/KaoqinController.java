@@ -12,7 +12,7 @@ public class KaoqinController {
         kaoqinMapper.addKaoqin(kaoqin);
     }
 
-    static public boolean getKaoqinIfExistByDateAndSection(Date date, byte courseSection) {
-        return kaoqinMapper.getKaoqinIfExistByDateAndSection(date, courseSection);
+    static public boolean getKaoqinIfExistByDateAndSection(Date date, byte section) {
+        return kaoqinMapper.getKaoqinIfExistByDateAndSection(date, section);
     }
 }
