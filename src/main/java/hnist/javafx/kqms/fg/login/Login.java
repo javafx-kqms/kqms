@@ -3,17 +3,20 @@ package hnist.javafx.kqms.fg.login;
 import hnist.javafx.kqms.bg.controller.ManagerController;
 import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
-import javafx.geometry.Pos;
+import javafx.animation.ScaleTransition;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class Login extends View {
     private final Stage stage;
@@ -29,31 +32,45 @@ public class Login extends View {
 
     @Override
     protected Pane initView() {
-        StackPane root = getRoot();
-        root.getChildren().addAll(getInputGroup());
+        return getRoot();
+    }
+
+    private VBox getRoot() {
+        Text title = new Text("管理系统");
+        title.setStyle("-fx-font-size: 30;");
+
+        VBox root = new VBox(title, getMain());
+        root.setStyle("-fx-background-color: #f5e6c5; -fx-padding: 50; -fx-spacing: 20;");
         return root;
     }
 
-    private StackPane getRoot() {
-        StackPane root = new StackPane();
+    private HBox getMain() {
+        HBox main = new HBox(getLeft(), getRight());
+        main.setStyle("-fx-background-color: white; -fx-padding: 2; -fx-border-color: #b3d7f1; -fx-border-width: 2; -fx-border-radius: 5;");
+        return main;
+    }
 
-        root.setAlignment(Pos.CENTER);
-        String backgroundImage = getClass().getResource("/image/login.jpg").toExternalForm();
-        root.setStyle("-fx-background-image: url('" + backgroundImage + "'); -fx-background-size: cover;");
+    private ImageView getLeft() {
+        ImageView imageView = new ImageView(new Image(getClass().getResource("/image/login.jpg").toExternalForm()));
+        imageView.setFitHeight(350);
+        imageView.setFitWidth(600);
+        return imageView;
+    }
 
-        Rectangle background = new Rectangle(300, 200);
-        background.setStyle("-fx-fill: rgba(255, 255, 255, 0.7); -fx-stroke: black; -fx-stroke-width: 2px; -fx-arc-width: 50px; -fx-arc-height: 50px;");
+    private VBox getRight() {
+        Text title = new Text("用户登录");
+        title.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
 
-        root.getChildren().addAll(background);
-
-        return root;
+        VBox right = new VBox(title, getInputGroup());
+        right.setStyle("-fx-spacing: 10; -fx-padding: 20;");
+        return right;
     }
 
     private GridPane getInputGroup() {
         GridPane inputGroup = new GridPane();
-        inputGroup.setStyle("-fx-background-color: transparent; -fx-hgap: 10; -fx-vgap: 10; -fx-padding: 10; -fx-alignment: center;");
+        inputGroup.setStyle("-fx-hgap: 10; -fx-vgap: 10;");
 
-        Label usernameLabel = getStyledLabel("账号:");
+        Label usernameLabel = getStyledLabel("用户名:");
         Label passwordLabel = getStyledLabel("密码:");
         Label errorLabel = getErrorLabel();
         TextField userNameField = getStyledTextField();
@@ -112,15 +129,13 @@ public class Login extends View {
 
     private Button getStyledLoginButton() {
         Button button = new Button("登录");
-        button.setFont(new Font("Arial", 14));
-        button.setPrefHeight(35);
-        button.setPrefWidth(100);
-        button.setTextFill(Color.WHITE);
-        button.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 100px; -fx-pref-height: 40px; -fx-background-radius: 5px;");
-        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #45a049; -fx-background-radius: 5;"));
-        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #4CAF50; -fx-background-radius: 5;"));
-        button.setOnMousePressed(e -> button.setStyle("-fx-background-color: #357a38; -fx-background-radius: 5;"));
-        button.setOnMouseReleased(e -> button.setStyle("-fx-background-color: #45a049; -fx-background-radius: 5;"));
+        String baseStyle = "-fx-background-color: #2196F3; -fx-font-size: 14px; -fx-background-radius: 5px;";
+
+        button.setStyle(baseStyle);
+
+        button.setOnMouseEntered(e -> button.setStyle(baseStyle + "-fx-background-color: #1976D2;"));
+        button.setOnMouseExited(e -> button.setStyle(baseStyle + "-fx-background-color: #2196F3;"));
+        button.setOnMousePressed(e -> button.setStyle(baseStyle + "-fx-background-color: #0D47A1;"));
         return button;
     }
 }
