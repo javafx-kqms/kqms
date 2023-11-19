@@ -19,13 +19,11 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "no='" + no + '\'' +
-                ", name='" + name + '\'' +
-                ", sex='" + sex + '\'' +
-                ", age=" + age +
-                ", className='" + className + '\'' +
-                '}';
+        return "学号：" + no +
+                "   姓名：" +  name +
+                "   性别：" + sex +
+                "   年龄：'" + age +
+                "   班级：" + className;
     }
 
     public String getNo() {

@@ -7,7 +7,6 @@ module com.example.demo {
     opens hnist.javafx.kqms to javafx.fxml;
     opens hnist.javafx.kqms.bg.controller;
     opens hnist.javafx.kqms.bg.mapper;
-    opens hnist.javafx.kqms.fg.main.view;
     opens hnist.javafx.kqms.pojo;
     exports hnist.javafx.kqms;
     opens hnist.javafx.kqms.fg.main;

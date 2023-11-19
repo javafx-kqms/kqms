@@ -95,6 +95,7 @@ public class GetStudentView extends View {
                 studentIfo.setItems(list);
             }else{
                 gridPane.add(unfindLabel,0,4);
+                GridPane.setConstraints(unfindLabel,0,4,5,1);
             }
         });
 
@@ -179,7 +180,7 @@ public class GetStudentView extends View {
                     } else if (result.isPresent() && result.get() == deleteButtonType) {
                         operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
                         operatAlert.setTitle("确认删除");
-                        operatAlert.setHeaderText("确定要删除该学生信息吗？" + student.toString());
+                        operatAlert.setHeaderText("确定要删除该学生信息吗？" + "\n" + student.toString());
                         operatAlert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
                         Optional<ButtonType> confirmResult = operatAlert.showAndWait();
                         if (confirmResult.isPresent() && confirmResult.get() == ButtonType.YES) {

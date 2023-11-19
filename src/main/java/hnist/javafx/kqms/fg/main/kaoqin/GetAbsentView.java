@@ -7,6 +7,7 @@ import hnist.javafx.kqms.pojo.Kaoqin;
 import hnist.javafx.kqms.pojo.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -100,6 +101,7 @@ public class GetAbsentView extends View {
                 kaoqinIfo.setItems(list);
             }else{
                 gridPane.add(unfindLabel,0,4);
+                GridPane.setConstraints(unfindLabel,0,4,6,1);
             }
         });
 
@@ -124,11 +126,10 @@ public class GetAbsentView extends View {
                         //删除界面
                         operatAlert = new Alert(Alert.AlertType.CONFIRMATION);
                         operatAlert.setTitle("确认删除");
-                        operatAlert.setHeaderText("确定要删除该缺课信息吗？" + kaoqin.toString());
+                        operatAlert.setHeaderText("确定要删除该缺课信息吗？" + "\n" + kaoqin.toString());
                         operatAlert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
                         Optional<ButtonType> confirmResult = operatAlert.showAndWait();
                         if (confirmResult.isPresent() && confirmResult.get() == ButtonType.YES) {
-                            //TODO 存疑
                             KaoqinController.deleteKaoqin(kaoqin);
                             operatAlert = new Alert(Alert.AlertType.INFORMATION);
                             operatAlert.setTitle("删除成功");
@@ -137,21 +138,14 @@ public class GetAbsentView extends View {
                             operatAlert.showAndWait();
 
                         }
+
                     }
+                    kaoqinIfo.getItems().clear();
                 }
             });
-
-
-
-
-
-
-
-
             return row;
         });
-
-
+        gridPane.setAlignment(Pos.CENTER);
         return gridPane;
     }
 
