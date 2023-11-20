@@ -3,6 +3,7 @@ module com.example.demo {
     requires javafx.fxml;
     requires java.sql;
     requires org.mybatis;
+    requires java.desktop;
 
     opens hnist.javafx.kqms to javafx.fxml;
     opens hnist.javafx.kqms.bg.controller;
