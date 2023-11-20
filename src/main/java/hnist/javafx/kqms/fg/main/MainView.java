@@ -1,5 +1,6 @@
 package hnist.javafx.kqms.fg.main;
 
+import hnist.javafx.kqms.fg.main.file_operation.FileOperationView;
 import hnist.javafx.kqms.fg.main.hello.HelloView;
 import hnist.javafx.kqms.fg.main.kaoqin.AddKaoqinView;
 import hnist.javafx.kqms.fg.main.kaoqin.GetAbsentView;
@@ -22,7 +23,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class MainView extends View {
-    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new GetAbsentView(),new AddKaoqinView()};
+    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new GetAbsentView(),new AddKaoqinView(),new FileOperationView()};
 
     private final Pane routerView = getRouterView();
 
