@@ -8,6 +8,8 @@ import java.util.List;
 public interface KaoqinMapper {
     void addKaoqin(Kaoqin kaoqin);
 
+    void addKaoqinByList(List<Kaoqin> list);
+
     void deleteKaoqin(Kaoqin kaoqin);
 
     boolean getKaoqinIfExist(Date date, byte section, String studentNo);

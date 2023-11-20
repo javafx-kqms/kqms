@@ -13,6 +13,10 @@ public class KaoqinController {
         kaoqinMapper.addKaoqin(kaoqin);
     }
 
+    static public void addKaoqinByList(List<Kaoqin> list) {
+        kaoqinMapper.addKaoqinByList(list);
+    }
+
     static public void deleteKaoqin(Kaoqin kaoqin) {
         kaoqinMapper.deleteKaoqin(kaoqin);
     }

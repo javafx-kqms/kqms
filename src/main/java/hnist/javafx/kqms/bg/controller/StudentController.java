@@ -12,6 +12,10 @@ public class StudentController {
         studentMapper.addStudent(student);
     }
 
+    static public void addStudentByList(List<Student> list) {
+        studentMapper.addStudentByList(list);
+    }
+
     static public void deleteStudent(String no) {
         studentMapper.deleteStudent(no);
     }

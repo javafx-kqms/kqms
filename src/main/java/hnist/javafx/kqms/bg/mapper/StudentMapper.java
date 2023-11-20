@@ -7,6 +7,8 @@ import java.util.List;
 public interface StudentMapper {
     void addStudent(Student student);
 
+    void addStudentByList(List<Student> list);
+
     void deleteStudent(String no);
 
     void modifyStudent(Student student);

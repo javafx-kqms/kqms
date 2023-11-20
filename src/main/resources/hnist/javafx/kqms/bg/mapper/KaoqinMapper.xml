@@ -8,6 +8,14 @@
         (#{date}, #{courseName}, #{section}, #{type}, #{studentName}, #{studentNo})
     </insert>
 
+<!--    void addKaoqinByList(List<Kaoqin> list);-->
+    <insert id="addKaoqinByList">
+        insert into kaoqin values
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.date}, #{item.courseName}, #{item.section}, #{item.type}, #{item.studentName}, #{item.studentNo}
+        </foreach>
+    </insert>
+
 <!--    void deleteKaoqin(Kaoqin kaoqin);-->
     <delete id="deleteKaoqin">
         delete from kaoqin

@@ -8,6 +8,14 @@
         (#{no}, #{name}, #{sex}, #{age}, #{className})
     </insert>
 
+<!--    void addStudentByList(List<Student> list);-->
+    <insert id="addStudentByList">
+        insert into student values
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.no}, #{item.name}, #{item.sex}, #{item.age}, #{item.className}
+        </foreach>
+    </insert>
+
 <!--    void deleteStudent(String no);-->
     <delete id="deleteStudent">
         delete from student

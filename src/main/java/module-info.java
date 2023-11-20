@@ -4,6 +4,7 @@ module com.example.demo {
     requires java.sql;
     requires org.mybatis;
     requires java.desktop;
+    requires easyexcel.core;
 
     opens hnist.javafx.kqms to javafx.fxml;
     opens hnist.javafx.kqms.bg.controller;

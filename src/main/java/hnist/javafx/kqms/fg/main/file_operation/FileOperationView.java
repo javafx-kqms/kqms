@@ -1,6 +1,13 @@
 package hnist.javafx.kqms.fg.main.file_operation;
 
+import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.context.AnalysisContext;
+import com.alibaba.excel.read.listener.ReadListener;
+import hnist.javafx.kqms.bg.controller.KaoqinController;
+import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
+import hnist.javafx.kqms.pojo.Kaoqin;
+import hnist.javafx.kqms.pojo.Student;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -11,6 +18,9 @@ import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileOperationView extends View {
 
@@ -33,8 +43,8 @@ public class FileOperationView extends View {
 
         Label importLabel = new Label("导入");
         Label exportLabel = new Label("导出");
-        importLabel.setFont(new Font("Arial",20));
-        exportLabel.setFont(new Font("Arial",20));
+        importLabel.setFont(new Font("Arial", 20));
+        exportLabel.setFont(new Font("Arial", 20));
 
         //使用TextArea存放“浏览”按钮获取的文件路径，可供用户进行修改
         TextArea importStudentInfoTA = new TextArea();
@@ -100,4 +110,45 @@ public class FileOperationView extends View {
         return file.getAbsolutePath();
     }
 
+
+    private void studentIn(String path) {
+        EasyExcel.read(path, Student.class, new ReadListener<Student>() {
+            private final List<Student> data = new ArrayList<>();
+
+            @Override
+            public void invoke(Student student, AnalysisContext analysisContext) {
+                data.add(student);
+            }
+
+            @Override
+            public void doAfterAllAnalysed(AnalysisContext analysisContext) {
+                StudentController.addStudentByList(data);
+            }
+        }).sheet().doRead();
+    }
+
+    private void studentOut(String path) {
+        List<Student> data = StudentController.getStudent(null, null);
+        EasyExcel.write(path + "学生信息.xlsx", Student.class).sheet().doWrite(data);
+    }
+
+    private void kaoqinIn(String path) {
+        EasyExcel.read(path, Student.class, new ReadListener<Kaoqin>() {
+            private final List<Kaoqin> data = new ArrayList<>();
+            @Override
+            public void invoke(Kaoqin kaoqin, AnalysisContext analysisContext) {
+                data.add(kaoqin);
+            }
+
+            @Override
+            public void doAfterAllAnalysed(AnalysisContext analysisContext) {
+                KaoqinController.addKaoqinByList(data);
+            }
+        }).sheet().doRead();
+    }
+
+    private void kaoqinOut(String path) {
+        List<Kaoqin> data = KaoqinController.getKaoqin(null, null);
+        EasyExcel.write(path + "考勤信息.xlsx", Student.class).sheet().doWrite(data);
+    }
 }

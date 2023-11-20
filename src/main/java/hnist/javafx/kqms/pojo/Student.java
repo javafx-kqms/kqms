@@ -1,10 +1,17 @@
 package hnist.javafx.kqms.pojo;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 public class Student {
+    @ExcelProperty("学号")
     private String no;
+    @ExcelProperty("姓名")
     private String name;
+    @ExcelProperty("性别")
     private String sex;
+    @ExcelProperty("年龄")
     private short age;
+    @ExcelProperty("班级")
     private String className;
 
     public Student(){}
