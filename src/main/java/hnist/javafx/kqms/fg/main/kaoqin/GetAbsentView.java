@@ -15,7 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.util.converter.ByteStringConverter;
 import javafx.util.converter.DateStringConverter;
-
 import java.util.Date;
 import java.util.Optional;
 

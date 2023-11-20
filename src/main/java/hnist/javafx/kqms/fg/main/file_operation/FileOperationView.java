@@ -5,14 +5,11 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-import java.awt.*;
 import java.io.File;
 
 public class FileOperationView extends View {
@@ -60,6 +57,18 @@ public class FileOperationView extends View {
         importAbsentInfoFileButton.setOnAction(e->{
             //TODO
 //            importAbsentInfoTA.appendText(getFilePath());
+        });
+
+        //导出学生信息的按钮
+        importStudentInfoFileButton.setOnAction(e->{
+            //TODO
+//            exportStudentInfoTA.appendText(getFilePath());
+        });
+
+        //导出缺课信息的按钮
+        importAbsentInfoFileButton.setOnAction(e->{
+            //TODO
+//            exportAbsentInfoTA.appendText(getFilePath());
         });
 
         GridPane gridPane = new GridPane();

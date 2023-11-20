@@ -13,7 +13,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
