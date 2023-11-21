@@ -35,6 +35,8 @@ public class KqmsApplication extends Application {
     static public Stage getStage() {
         return stage;
     }
+
+    //使用FileChooser打开本地文件，获取文件路径
     public static String getFilePath(Stage stage){
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);

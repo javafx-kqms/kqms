@@ -77,35 +77,48 @@ public class FileOperationView extends View {
 
         //导入学生信息的按钮
         importStudentInfoFileButton.setOnAction(e->{
-            System.out.println("1");
            importStudentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+
+        });
+        //点击"导入学生信息"
+        importStudentInfoButton.setOnAction(e->{
+            studentIn(importStudentInfoTA.getText());
+            importStudentInfoTA.clear();
         });
 
         //导入缺课信息的按钮
         importAbsentInfoFileButton.setOnAction(e->{
-            //TODO
-//            importAbsentInfoTA.appendText(getFilePath());
+            importAbsentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+        });
+        //点击"导入缺课信息"
+        importAbsentInfoButton.setOnAction(e->{
+            kaoqinIn(importAbsentInfoTA.getText());
+            importAbsentInfoTA.clear();
         });
 
         //导出学生信息的按钮
-        importStudentInfoFileButton.setOnAction(e->{
-            //TODO
-//            exportStudentInfoTA.appendText(getFilePath());
+        exportStudentInfoFileButton.setOnAction(e->{
+            exportStudentIfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+        });
+        //点击"导出学生信息"
+        exportStudentInfoButton.setOnAction(e->{
+            studentOut(exportStudentIfoTA.getText());
+            exportStudentIfoTA.clear();
         });
 
         //导出缺课信息的按钮
-        importAbsentInfoFileButton.setOnAction(e->{
-            //TODO
-//            exportAbsentInfoTA.appendText(getFilePath());
+        exportAbsentInfoFileButton.setOnAction(e->{
+            exportAbsentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
         });
-
+        //点击"导出缺课信息"
+        exportAbsentInfoButton.setOnAction(e->{
+            kaoqinOut(exportStudentIfoTA.getText());
+            exportAbsentInfoTA.clear();
+        });
 
         gridPane.setAlignment(Pos.CENTER);
         return gridPane;
     }
-
-    //使用FileChooser打开本地文件，获取文件路径
-
 
 
     private void studentIn(String path) {

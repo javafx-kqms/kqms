@@ -1,13 +1,21 @@
 package hnist.javafx.kqms.pojo;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 import java.util.Date;
 
 public class Kaoqin {
+    @ExcelProperty("缺课日期")
     private Date date;//缺课日期
+    @ExcelProperty("课程名称")
     private String courseName;//课程名称
+    @ExcelProperty("第几节课")
     private byte section;//第几节课
+    @ExcelProperty("缺课类型")
     private String type;//缺课类型
+    @ExcelProperty("学生姓名")
     private String studentName;
+    @ExcelProperty("学号")
     private String studentNo;
 
     public Kaoqin(){}
