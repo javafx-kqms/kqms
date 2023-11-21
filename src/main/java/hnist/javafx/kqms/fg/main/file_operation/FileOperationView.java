@@ -3,6 +3,7 @@ package hnist.javafx.kqms.fg.main.file_operation;
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.read.listener.ReadListener;
+import hnist.javafx.kqms.KqmsApplication;
 import hnist.javafx.kqms.bg.controller.KaoqinController;
 import hnist.javafx.kqms.bg.controller.StudentController;
 import hnist.javafx.kqms.fg.main.View;
@@ -56,11 +57,28 @@ public class FileOperationView extends View {
         TextArea exportAbsentInfoTA = new TextArea();
         exportAbsentInfoTA.setPrefSize(250,20);
 
+        GridPane gridPane = new GridPane();
+        gridPane.setVgap(20);
+        gridPane.setHgap(20);
+        gridPane.add(importLabel,0,0);
+        gridPane.add(importStudentInfoTA,1,1);
+        gridPane.add(importStudentInfoFileButton,2,1);
+        gridPane.add(importStudentInfoButton,3,1);
+        gridPane.add(importAbsentInfoTA,1,2);
+        gridPane.add(importAbsentInfoFileButton,2,2);
+        gridPane.add(importAbsentInfoButton,3,2);
+        gridPane.add(exportLabel,0,3);
+        gridPane.add(exportStudentIfoTA,1,4);
+        gridPane.add(exportStudentInfoFileButton,2,4);
+        gridPane.add(exportStudentInfoButton,3,4);
+        gridPane.add(exportAbsentInfoTA,1,5);
+        gridPane.add(exportAbsentInfoFileButton,2,5);
+        gridPane.add(exportAbsentInfoButton,3,5);
 
         //导入学生信息的按钮
         importStudentInfoFileButton.setOnAction(e->{
-            //TODO
-//            importStudentInfoTA.appendText(getFilePath());
+            System.out.println("1");
+           importStudentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
         });
 
         //导入缺课信息的按钮
@@ -81,34 +99,13 @@ public class FileOperationView extends View {
 //            exportAbsentInfoTA.appendText(getFilePath());
         });
 
-        GridPane gridPane = new GridPane();
-        gridPane.setVgap(20);
-        gridPane.setHgap(20);
-        gridPane.add(importLabel,0,0);
-        gridPane.add(importStudentInfoTA,1,1);
-        gridPane.add(importStudentInfoFileButton,2,1);
-        gridPane.add(importStudentInfoButton,3,1);
-        gridPane.add(importAbsentInfoTA,1,2);
-        gridPane.add(importAbsentInfoFileButton,2,2);
-        gridPane.add(importAbsentInfoButton,3,2);
-        gridPane.add(exportLabel,0,3);
-        gridPane.add(exportStudentIfoTA,1,4);
-        gridPane.add(exportStudentInfoFileButton,2,4);
-        gridPane.add(exportStudentInfoButton,3,4);
-        gridPane.add(exportAbsentInfoTA,1,5);
-        gridPane.add(exportAbsentInfoFileButton,2,5);
-        gridPane.add(exportAbsentInfoButton,3,5);
 
         gridPane.setAlignment(Pos.CENTER);
         return gridPane;
     }
 
     //使用FileChooser打开本地文件，获取文件路径
-    private String getFilePath(Stage stage){
-        FileChooser fileChooser = new FileChooser();
-        File file = fileChooser.showOpenDialog(stage);
-        return file.getAbsolutePath();
-    }
+
 
 
     private void studentIn(String path) {
