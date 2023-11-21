@@ -10,8 +10,11 @@ import javafx.stage.Stage;
 public class KqmsApplication extends Application {
     static private Scene scene;
 
+    static private Stage stage;
+
     @Override
     public void start(Stage stage) {
+        KqmsApplication.stage = stage;
         scene = new Scene(new Login().getView(), 1000, 600);
         scene = new Scene(new MainView().getView(), 1000, 600);
         stage.setScene(scene);
@@ -22,4 +25,7 @@ public class KqmsApplication extends Application {
         scene.setRoot(root);
     }
 
+    static public Stage getStage() {
+        return stage;
+    }
 }
