@@ -1,4 +1,4 @@
-module com.example.demo {
+module hnist.javafx.kqms {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
@@ -10,6 +10,7 @@ module com.example.demo {
     opens hnist.javafx.kqms.bg.controller;
     opens hnist.javafx.kqms.bg.mapper;
     opens hnist.javafx.kqms.pojo;
-    exports hnist.javafx.kqms;
     opens hnist.javafx.kqms.fg.main;
+
+    exports hnist.javafx.kqms;
 }
