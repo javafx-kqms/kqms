@@ -78,7 +78,6 @@ public class FileOperationView extends View {
 
         //导入学生信息的"浏览"按钮
         importStudentInfoFileButton.setOnAction(e->{
-           importStudentInfoTA.appendText(KqmsApplication.getFilePath());
             importStudentInfoTA.clear();
             importStudentInfoTA.appendText(KqmsApplication.getFilePath());
             removeLabelFromGridPane(gridPane,importStudentIfoLabel);
@@ -92,7 +91,6 @@ public class FileOperationView extends View {
 
         //导入缺课信息的"浏览"按钮
         importAbsentInfoFileButton.setOnAction(e->{
-            importAbsentInfoTA.appendText(KqmsApplication.getFilePath());
             importAbsentInfoTA.clear();
             importAbsentInfoTA.appendText(KqmsApplication.getFilePath());
             removeLabelFromGridPane(gridPane,importAbsentInfoLabel);
@@ -106,7 +104,6 @@ public class FileOperationView extends View {
 
         //导出学生信息的"浏览"按钮
         exportStudentInfoFileButton.setOnAction(e->{
-            exportStudentIfoTA.appendText(KqmsApplication.getDirectPath());
             exportStudentIfoTA.clear();
             exportStudentIfoTA.appendText(KqmsApplication.getDirectPath());
             removeLabelFromGridPane(gridPane,exportStudentIfoLabel);
@@ -120,7 +117,6 @@ public class FileOperationView extends View {
 
         //导出缺课信息的"浏览"按钮
         exportAbsentInfoFileButton.setOnAction(e->{
-            exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath());
             exportAbsentInfoTA.clear();
             exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath());
             removeLabelFromGridPane(gridPane,exportAbsentInfoLabel);
