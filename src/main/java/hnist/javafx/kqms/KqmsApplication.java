@@ -2,14 +2,17 @@ package hnist.javafx.kqms;
 
 import hnist.javafx.kqms.fg.login.Login;
 import hnist.javafx.kqms.fg.main.MainView;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -17,6 +20,7 @@ public class KqmsApplication extends Application {
     static private Scene scene;
 
     static private Stage stage;
+    static private Label welcomeLabel = new Label("欢迎");
 
     @Override
     public void start(Stage stage) {
@@ -26,6 +30,11 @@ public class KqmsApplication extends Application {
 
         stage.setScene(scene);
         stage.show();
+
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10),
+                new KeyValue(welcomeLabel.translateXProperty(), welcomeLabel.getBoundsInLocal().getWidth())));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     static public void changeRoot(Pane root) {
@@ -44,5 +53,9 @@ public class KqmsApplication extends Application {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File file = directoryChooser.showDialog(stage);
         return file.getAbsolutePath();
+    }
+
+    public static Label getLabel(){
+        return welcomeLabel;
     }
 }
