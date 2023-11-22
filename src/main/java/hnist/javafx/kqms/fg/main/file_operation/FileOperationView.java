@@ -16,9 +16,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-import java.io.File;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +43,10 @@ public class FileOperationView extends View {
         Label exportLabel = new Label("导出");
         importLabel.setFont(new Font("Arial", 20));
         exportLabel.setFont(new Font("Arial", 20));
+        Label importStudentIfoLabel = new Label("导入成功！");
+        Label importAbsentInfoLabel = new Label("导入成功！");
+        Label exportStudentIfoLabel = new Label("导出成功！");
+        Label exportAbsentInfoLabel = new Label("导出成功！");
 
         //使用TextArea存放“浏览”按钮获取的文件路径，可供用户进行修改
         TextArea importStudentInfoTA = new TextArea();
@@ -75,45 +76,60 @@ public class FileOperationView extends View {
         gridPane.add(exportAbsentInfoFileButton,2,5);
         gridPane.add(exportAbsentInfoButton,3,5);
 
-        //导入学生信息的按钮
+        //导入学生信息的"浏览"按钮
         importStudentInfoFileButton.setOnAction(e->{
            importStudentInfoTA.appendText(KqmsApplication.getFilePath());
-
+            importStudentInfoTA.clear();
+            importStudentInfoTA.appendText(KqmsApplication.getFilePath());
+            removeLabelFromGridPane(gridPane,importStudentIfoLabel);
         });
         //点击"导入学生信息"
         importStudentInfoButton.setOnAction(e->{
             studentIn(importStudentInfoTA.getText());
             importStudentInfoTA.clear();
+            gridPane.add(importStudentIfoLabel,4,1);
         });
 
-        //导入缺课信息的按钮
+        //导入缺课信息的"浏览"按钮
         importAbsentInfoFileButton.setOnAction(e->{
             importAbsentInfoTA.appendText(KqmsApplication.getFilePath());
+            importAbsentInfoTA.clear();
+            importAbsentInfoTA.appendText(KqmsApplication.getFilePath());
+            removeLabelFromGridPane(gridPane,importAbsentInfoLabel);
         });
         //点击"导入缺课信息"
         importAbsentInfoButton.setOnAction(e->{
             kaoqinIn(importAbsentInfoTA.getText());
             importAbsentInfoTA.clear();
+            gridPane.add(importAbsentInfoLabel,4,2);
         });
 
-        //导出学生信息的按钮
+        //导出学生信息的"浏览"按钮
         exportStudentInfoFileButton.setOnAction(e->{
             exportStudentIfoTA.appendText(KqmsApplication.getDirectPath());
+            exportStudentIfoTA.clear();
+            exportStudentIfoTA.appendText(KqmsApplication.getDirectPath());
+            removeLabelFromGridPane(gridPane,exportStudentIfoLabel);
         });
         //点击"导出学生信息"
         exportStudentInfoButton.setOnAction(e->{
             studentOut(exportStudentIfoTA.getText());
             exportStudentIfoTA.clear();
+            gridPane.add(exportStudentIfoLabel,4,4);
         });
 
-        //导出缺课信息的按钮
+        //导出缺课信息的"浏览"按钮
         exportAbsentInfoFileButton.setOnAction(e->{
             exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath());
+            exportAbsentInfoTA.clear();
+            exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath());
+            removeLabelFromGridPane(gridPane,exportAbsentInfoLabel);
         });
         //点击"导出缺课信息"
         exportAbsentInfoButton.setOnAction(e->{
             kaoqinOut(exportStudentIfoTA.getText());
             exportAbsentInfoTA.clear();
+            gridPane.add(exportAbsentInfoLabel,4,5);
         });
 
         gridPane.setAlignment(Pos.CENTER);
@@ -160,5 +176,9 @@ public class FileOperationView extends View {
     private void kaoqinOut(String path) {
         List<Kaoqin> data = KaoqinController.getKaoqin(null, null);
         EasyExcel.write(path + "/考勤信息.xlsx", Student.class).sheet().doWrite(data);
+    }
+
+    private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
+        gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }
 }
