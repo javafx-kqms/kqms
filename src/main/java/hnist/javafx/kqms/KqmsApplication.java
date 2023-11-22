@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -40,6 +41,13 @@ public class KqmsApplication extends Application {
     public static String getFilePath(Stage stage){
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
+        return file.getAbsolutePath();
+    }
+
+    //使用DirectoryChooser打开本地文件夹
+    public static String getDirectPath(Stage stage){
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File file = directoryChooser.showDialog(stage);
         return file.getAbsolutePath();
     }
 }

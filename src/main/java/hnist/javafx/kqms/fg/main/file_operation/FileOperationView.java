@@ -98,7 +98,7 @@ public class FileOperationView extends View {
 
         //导出学生信息的按钮
         exportStudentInfoFileButton.setOnAction(e->{
-            exportStudentIfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+            exportStudentIfoTA.appendText(KqmsApplication.getDirectPath(KqmsApplication.getStage()));
         });
         //点击"导出学生信息"
         exportStudentInfoButton.setOnAction(e->{
@@ -108,7 +108,7 @@ public class FileOperationView extends View {
 
         //导出缺课信息的按钮
         exportAbsentInfoFileButton.setOnAction(e->{
-            exportAbsentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+            exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath(KqmsApplication.getStage()));
         });
         //点击"导出缺课信息"
         exportAbsentInfoButton.setOnAction(e->{
