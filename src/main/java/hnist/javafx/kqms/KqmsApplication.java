@@ -37,14 +37,14 @@ public class KqmsApplication extends Application {
     }
 
     //使用FileChooser打开本地文件，获取文件路径
-    public static String getFilePath(Stage stage){
+    public static String getFilePath(){
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
         return file.getAbsolutePath();
     }
 
     //使用DirectoryChooser打开本地文件夹
-    public static String getDirectPath(Stage stage){
+    public static String getDirectPath(){
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File file = directoryChooser.showDialog(stage);
         return file.getAbsolutePath();
