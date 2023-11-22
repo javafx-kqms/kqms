@@ -17,7 +17,6 @@ public class KqmsApplication extends Application {
     static private Scene scene;
 
     static private Stage stage;
-    private TextArea logTextArea = new TextArea("路径");
 
     @Override
     public void start(Stage stage) {
