@@ -78,7 +78,6 @@ public class FileOperationView extends View {
         //导入学生信息的按钮
         importStudentInfoFileButton.setOnAction(e->{
            importStudentInfoTA.appendText(KqmsApplication.getFilePath());
-
         });
         //点击"导入学生信息"
         importStudentInfoButton.setOnAction(e->{
@@ -112,7 +111,7 @@ public class FileOperationView extends View {
         });
         //点击"导出缺课信息"
         exportAbsentInfoButton.setOnAction(e->{
-            kaoqinOut(exportStudentIfoTA.getText());
+            kaoqinOut(exportAbsentInfoTA.getText());
             exportAbsentInfoTA.clear();
         });
 
@@ -139,11 +138,11 @@ public class FileOperationView extends View {
 
     private void studentOut(String path) {
         List<Student> data = StudentController.getStudent(null, null);
-        EasyExcel.write(path + "/学生信息.xlsx", Student.class).sheet().doWrite(data);
+        EasyExcel.write(path + "\\学生信息.xlsx", Student.class).sheet().doWrite(data);
     }
 
     private void kaoqinIn(String path) {
-        EasyExcel.read(path, Student.class, new ReadListener<Kaoqin>() {
+        EasyExcel.read(path, Kaoqin.class, new ReadListener<Kaoqin>() {
             private final List<Kaoqin> data = new ArrayList<>();
             @Override
             public void invoke(Kaoqin kaoqin, AnalysisContext analysisContext) {
@@ -159,6 +158,6 @@ public class FileOperationView extends View {
 
     private void kaoqinOut(String path) {
         List<Kaoqin> data = KaoqinController.getKaoqin(null, null);
-        EasyExcel.write(path + "/考勤信息.xlsx", Student.class).sheet().doWrite(data);
+        EasyExcel.write(path + "\\考勤信息.xlsx", Kaoqin.class).sheet().doWrite(data);
     }
 }

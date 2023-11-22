@@ -11,8 +11,8 @@
 <!--    void addKaoqinByList(List<Kaoqin> list);-->
     <insert id="addKaoqinByList">
         insert into kaoqin values
-        <foreach collection="list" item="item" open="(" close=")" separator=",">
-            #{item.date}, #{item.courseName}, #{item.section}, #{item.type}, #{item.studentName}, #{item.studentNo}
+        <foreach collection="list" item="item" separator=",">
+            (#{item.date}, #{item.courseName}, #{item.section}, #{item.type}, #{item.studentName}, #{item.studentNo})
         </foreach>
     </insert>
 
