@@ -77,7 +77,7 @@ public class FileOperationView extends View {
 
         //导入学生信息的按钮
         importStudentInfoFileButton.setOnAction(e->{
-           importStudentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+           importStudentInfoTA.appendText(KqmsApplication.getFilePath());
 
         });
         //点击"导入学生信息"
@@ -88,7 +88,7 @@ public class FileOperationView extends View {
 
         //导入缺课信息的按钮
         importAbsentInfoFileButton.setOnAction(e->{
-            importAbsentInfoTA.appendText(KqmsApplication.getFilePath(KqmsApplication.getStage()));
+            importAbsentInfoTA.appendText(KqmsApplication.getFilePath());
         });
         //点击"导入缺课信息"
         importAbsentInfoButton.setOnAction(e->{
@@ -98,7 +98,7 @@ public class FileOperationView extends View {
 
         //导出学生信息的按钮
         exportStudentInfoFileButton.setOnAction(e->{
-            exportStudentIfoTA.appendText(KqmsApplication.getDirectPath(KqmsApplication.getStage()));
+            exportStudentIfoTA.appendText(KqmsApplication.getDirectPath());
         });
         //点击"导出学生信息"
         exportStudentInfoButton.setOnAction(e->{
@@ -108,7 +108,7 @@ public class FileOperationView extends View {
 
         //导出缺课信息的按钮
         exportAbsentInfoFileButton.setOnAction(e->{
-            exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath(KqmsApplication.getStage()));
+            exportAbsentInfoTA.appendText(KqmsApplication.getDirectPath());
         });
         //点击"导出缺课信息"
         exportAbsentInfoButton.setOnAction(e->{
@@ -139,7 +139,7 @@ public class FileOperationView extends View {
 
     private void studentOut(String path) {
         List<Student> data = StudentController.getStudent(null, null);
-        EasyExcel.write(path + "学生信息.xlsx", Student.class).sheet().doWrite(data);
+        EasyExcel.write(path + "/学生信息.xlsx", Student.class).sheet().doWrite(data);
     }
 
     private void kaoqinIn(String path) {
@@ -159,6 +159,6 @@ public class FileOperationView extends View {
 
     private void kaoqinOut(String path) {
         List<Kaoqin> data = KaoqinController.getKaoqin(null, null);
-        EasyExcel.write(path + "考勤信息.xlsx", Student.class).sheet().doWrite(data);
+        EasyExcel.write(path + "/考勤信息.xlsx", Student.class).sheet().doWrite(data);
     }
 }
