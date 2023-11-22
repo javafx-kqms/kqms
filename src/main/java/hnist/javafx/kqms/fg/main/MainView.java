@@ -11,10 +11,8 @@ import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -35,7 +33,8 @@ public class MainView extends View {
     @Override
     protected Pane initView() {
         VBox root = new VBox(getNavbar(), getMain());
-        root.setSpacing(10);
+        String path = getClass().getResource("/image/bg.jpg").toExternalForm();
+        root.setStyle("-fx-background-image: url(" + path + ");");
         return root;
     }
 
