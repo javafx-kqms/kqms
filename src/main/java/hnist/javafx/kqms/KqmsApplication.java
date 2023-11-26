@@ -26,9 +26,10 @@ public class KqmsApplication extends Application {
     public void start(Stage stage) {
         KqmsApplication.stage = stage;
         scene = new Scene(new Login().getView(), 1000, 600);
-        scene = new Scene(new MainView().getView(), 1000, 600);
+     //   scene = new Scene(new MainView().getView(), 1000, 600);
 
         stage.setScene(scene);
+        stage.setTitle("学生考勤管理系统");
         stage.show();
 
 //        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5),

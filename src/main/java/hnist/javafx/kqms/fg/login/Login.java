@@ -6,7 +6,6 @@ import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -17,7 +16,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Login extends View {
@@ -32,10 +30,11 @@ public class Login extends View {
         return getRoot();
     }
 
-//    private static final String[] IMAGE_URLS = {
-//            "src/main/resources/image/login.jpg"
-//    };
-//    private int currentImageIndex = 0;
+    private static final String[] IMAGE_URLS = {
+            "/image/login.jpg",
+            "/image/bg.jpg"
+    };
+    private int currentImageIndex = 0;
 
     private VBox getRoot() {
         Text title = new Text("管理系统");
@@ -53,16 +52,16 @@ public class Login extends View {
     }
 
     private ImageView getLeft() {
-        ImageView imageView = new ImageView(new Image(getClass().getResource("/image/login.jpg").toExternalForm()));
+        ImageView imageView = new ImageView();
         imageView.setFitHeight(350);
         imageView.setFitWidth(600);
 
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
-//            currentImageIndex = (currentImageIndex + 1) % IMAGE_URLS.length;
-//            imageView.setImage(new Image(IMAGE_URLS[currentImageIndex]));
-//        }));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
+            currentImageIndex = (currentImageIndex + 1) % IMAGE_URLS.length;
+            imageView.setImage(new Image(getClass().getResource(IMAGE_URLS[currentImageIndex]).toExternalForm()));
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
 
         return imageView;
     }
