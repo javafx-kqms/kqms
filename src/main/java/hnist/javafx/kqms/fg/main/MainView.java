@@ -97,6 +97,4 @@ public class MainView extends View {
 
         return main;
     }
-
-
 }

@@ -20,22 +20,16 @@ public class KqmsApplication extends Application {
     static private Scene scene;
 
     static private Stage stage;
-//    static private Label welcomeLabel = new Label("欢迎");
 
     @Override
     public void start(Stage stage) {
         KqmsApplication.stage = stage;
         scene = new Scene(new Login().getView(), 1000, 600);
-     //   scene = new Scene(new MainView().getView(), 1000, 600);
+//        scene = new Scene(new MainView().getView(), 1000, 600);
 
         stage.setScene(scene);
         stage.setTitle("学生考勤管理系统");
         stage.show();
-
-//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5),
-//                new KeyValue(welcomeLabel.translateXProperty(), welcomeLabel.getBoundsInLocal().getWidth())));
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        timeline.play();
     }
 
     static public void changeRoot(Pane root) {
@@ -55,8 +49,4 @@ public class KqmsApplication extends Application {
         File file = directoryChooser.showDialog(stage);
         return file.getAbsolutePath();
     }
-
-//    public static Label getLabel(){
-//        return welcomeLabel;
-//    }
 }

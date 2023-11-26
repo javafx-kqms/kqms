@@ -1,0 +1,1 @@
+--add-reads hnist.javafx.kqms=ALL-UNNAMED

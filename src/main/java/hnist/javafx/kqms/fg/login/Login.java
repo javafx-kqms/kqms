@@ -6,17 +6,22 @@ import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+
+import java.util.concurrent.Flow;
 
 public class Login extends View {
 
@@ -42,6 +47,7 @@ public class Login extends View {
 
         VBox root = new VBox(title, getMain());
         root.setStyle("-fx-background-color: #f5e6c5; -fx-padding: 50; -fx-spacing: 20;");
+
         return root;
     }
 
@@ -52,13 +58,13 @@ public class Login extends View {
     }
 
     private ImageView getLeft() {
-        ImageView imageView = new ImageView();
+        ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream(IMAGE_URLS[currentImageIndex])));
         imageView.setFitHeight(350);
         imageView.setFitWidth(600);
 
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
             currentImageIndex = (currentImageIndex + 1) % IMAGE_URLS.length;
-            imageView.setImage(new Image(getClass().getResource(IMAGE_URLS[currentImageIndex]).toExternalForm()));
+            imageView.setImage(new Image(getClass().getResourceAsStream(IMAGE_URLS[currentImageIndex])));
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
@@ -82,25 +88,36 @@ public class Login extends View {
         Label usernameLabel = getStyledLabel("用户名:");
         Label passwordLabel = getStyledLabel("密码:");
         Label errorLabel = getErrorLabel();
-        TextField userNameField = getStyledTextField();
+        TextField usernamefield = getStyledTextField();
         PasswordField passwordField = getStyledPasswordField();
         Button loginButton = getStyledLoginButton();
 
         inputGroup.add(usernameLabel, 0, 0);
-        inputGroup.add(userNameField, 1, 0, 5, 1);
+        inputGroup.add(usernamefield, 1, 0, 5, 1);
         inputGroup.add(passwordLabel, 0, 1);
         inputGroup.add(passwordField, 1, 1, 5, 1);
         inputGroup.add(loginButton, 0, 2, 6, 1);
         inputGroup.add(errorLabel, 0, 3, 6, 1);
 
-        loginButton.setOnAction(e -> {
-            String username = userNameField.getText();
+        EventHandler<ActionEvent> loginHandler = e -> {
+            String username = usernamefield.getText();
             String password = passwordField.getText();
             if (ManagerController.login(username, password)) {
                 KqmsApplication.changeRoot(new MainView().getView());
             } else {
                 errorLabel.setText("账号或密码错误");
             }
+        };
+
+        loginButton.setOnAction(loginHandler);
+
+        usernamefield.setOnKeyTyped(e -> {
+            if (e.getCode() == KeyCode.ENTER)
+                loginHandler.handle(new ActionEvent());
+        });
+        passwordField.setOnKeyTyped(e -> {
+            if (e.getCode() == KeyCode.ENTER)
+                loginHandler.handle(new ActionEvent());
         });
 
         return inputGroup;
