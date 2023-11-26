@@ -7,10 +7,12 @@ import hnist.javafx.kqms.fg.main.kaoqin.GetAbsentView;
 import hnist.javafx.kqms.fg.main.student.AddStudentView;
 import hnist.javafx.kqms.fg.main.student.GetStudentView;
 import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
@@ -95,4 +97,6 @@ public class MainView extends View {
 
         return main;
     }
+
+
 }

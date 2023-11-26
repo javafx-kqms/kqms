@@ -20,7 +20,7 @@ public class KqmsApplication extends Application {
     static private Scene scene;
 
     static private Stage stage;
-    static private Label welcomeLabel = new Label("欢迎");
+//    static private Label welcomeLabel = new Label("欢迎");
 
     @Override
     public void start(Stage stage) {
@@ -31,10 +31,10 @@ public class KqmsApplication extends Application {
         stage.setScene(scene);
         stage.show();
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(10),
-                new KeyValue(welcomeLabel.translateXProperty(), welcomeLabel.getBoundsInLocal().getWidth())));
-        timeline.setCycleCount(Timeline.INDEFINITE);
-        timeline.play();
+//        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5),
+//                new KeyValue(welcomeLabel.translateXProperty(), welcomeLabel.getBoundsInLocal().getWidth())));
+//        timeline.setCycleCount(Timeline.INDEFINITE);
+//        timeline.play();
     }
 
     static public void changeRoot(Pane root) {
@@ -55,7 +55,7 @@ public class KqmsApplication extends Application {
         return file.getAbsolutePath();
     }
 
-    public static Label getLabel(){
-        return welcomeLabel;
-    }
+//    public static Label getLabel(){
+//        return welcomeLabel;
+//    }
 }
