@@ -29,7 +29,7 @@ public class Student {
         return "学号：" + no +
                 "   姓名：" +  name +
                 "   性别：" + sex +
-                "   年龄：'" + age +
+                "   年龄：" + age +
                 "   班级：" + className;
     }
 
