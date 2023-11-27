@@ -79,8 +79,6 @@ public class Login extends View {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-
-
         return imageView;
     }
 
@@ -123,11 +121,11 @@ public class Login extends View {
 
         loginButton.setOnAction(loginHandler);
 
-        usernamefield.setOnKeyTyped(e -> {
+        usernamefield.setOnKeyReleased(e -> {
             if (e.getCode() == KeyCode.ENTER)
                 loginHandler.handle(new ActionEvent());
         });
-        passwordField.setOnKeyTyped(e -> {
+        passwordField.setOnKeyReleased(e -> {
             if (e.getCode() == KeyCode.ENTER)
                 loginHandler.handle(new ActionEvent());
         });
