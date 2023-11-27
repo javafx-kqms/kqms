@@ -13,6 +13,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.TableColumn;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.util.converter.ShortStringConverter;
 
@@ -28,12 +29,16 @@ public class GetStudentView extends View {
     @Override
     public Pane initView() {
         Label studentNumberLabel = new Label("学号");
+        studentNumberLabel.setFont(new Font("Arial",15));
         TextField studentNumber = new TextField();
         Label studentNameLabel = new Label("姓名");
+        studentNameLabel.setFont(new Font("Arial",15));
         TextField studentName = new TextField();
         Button searchButton = new Button("搜索");
         Label label = new Label("若没有填入搜索信息则显示全部学生信息");
+        label.setFont(new Font("Arial",15));
         Label unfindLabel = new Label("该学生信息不存在！");
+        unfindLabel.setFont(new Font("Arial",15));
         unfindLabel.setTextFill(Color.RED);
 
         GridPane gridPane = new GridPane();
@@ -125,17 +130,22 @@ public class GetStudentView extends View {
                         modifyDialog.setHeaderText("要修改的学生信息"+student.toString()+"\n"+"学号不可修改!");
 
                         Label confirmLabel = new Label("请填入修改后的信息");
+                        confirmLabel.setFont(new Font("Arial",15));
                         Label modifyNameLabel = new Label("姓名");
+                        modifyNameLabel.setFont(new Font("Arial",15));
                         TextField modifyNameTF = new TextField();
                         Label modifySexLabel = new Label("性别");
+                        modifySexLabel.setFont(new Font("Arial",15));
                         ObservableList<String> options = FXCollections.observableArrayList(
                                 "男", "女"
                         );
                         ComboBox<String> comboBox = new ComboBox<>(options);
                         comboBox.setPromptText("选择性别");
                         Label modifyAgeLabel = new Label("年龄");
+                        modifyAgeLabel.setFont(new Font("Arial",15));
                         TextField modifyAgeTF = new TextField();
                         Label modifyClassNameLabel = new Label("班级");
+                        modifyClassNameLabel.setFont(new Font("Arial",15));
                         TextField modifyClassNameTF = new TextField();
                         modifyClassNameTF.setPromptText("计科21-2BJ");
 

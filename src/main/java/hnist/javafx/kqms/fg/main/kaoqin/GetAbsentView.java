@@ -12,6 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.util.converter.ByteStringConverter;
 import javafx.util.converter.DateStringConverter;
@@ -27,11 +28,14 @@ public class GetAbsentView extends View {
     @Override
     public Pane initView() {
         Label courseNameLabel = new Label("课程名");
+        courseNameLabel.setFont(new Font("Arial",15));
         TextField courseNameTF = new TextField();
         Label studentNameLabel = new Label("姓名");
+        studentNameLabel.setFont(new Font("Arial",15));
         TextField studentNameTF = new TextField();
         Button searchButton = new Button("搜索");
         Label label = new Label("若没有填入搜索信息则显示全部缺课信息");
+        label.setFont(new Font("Arial",15));
         Label unfindLabel = new Label("该缺课信息不存在！");
         unfindLabel.setTextFill(Color.RED);
 

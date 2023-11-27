@@ -13,6 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,22 +33,29 @@ public class AddKaoqinView extends View {
 
 
         Label absentPromptLabel = new Label("请填写必要缺课信息");
+        absentPromptLabel.setFont(new Font("Arial",20));
         Label absentDateLabel = new Label("缺课日期");
+        absentDateLabel.setFont(new Font("Arial",15));
         TextField absentDateTF = new TextField();
         absentDateTF.setPromptText("2023-11-18");
         Label courseSectionLabel = new Label("第几节课");
+        courseSectionLabel.setFont(new Font("Arial",15));
         TextField courseSectionTF = new TextField();
         Label courseNameLabel = new Label("课程名称");
+        courseNameLabel.setFont(new Font("Arial",15));
         TextField courseNameTF = new TextField();
         Label studentNameLabel = new Label("学生姓名");
+        studentNameLabel.setFont(new Font("Arial",15));
         TextField studentNameTF = new TextField();
         Label absentTypeLabel = new Label("缺课类型");
+        absentTypeLabel.setFont(new Font("Arial",15));
         ObservableList<String> options = FXCollections.observableArrayList(
                 "迟到", "早退", "请假", "旷课"
         );
         ComboBox<String> comboBox = new ComboBox<>(options);
         comboBox.setPromptText("选择缺课类型");
         Label studentNoLabel = new Label("学号");
+        studentNoLabel.setFont(new Font("Arial",15));
         TextField studentNoTF = new TextField();
         Button addAbsentInfoButton = new Button("添加");
         addAbsentInfoButton.setPrefSize(250, 10);
@@ -68,6 +77,7 @@ public class AddKaoqinView extends View {
         gridPane.add(studentNoLabel, 1, 6);
         gridPane.add(studentNoTF, 2, 6);
         gridPane.add(addAbsentInfoButton, 1, 7);
+        GridPane.setConstraints(absentPromptLabel,1,0,2,1);
         GridPane.setConstraints(addAbsentInfoButton, 1, 7, 2, 1);
 
         gridPane.setAlignment(Pos.CENTER);

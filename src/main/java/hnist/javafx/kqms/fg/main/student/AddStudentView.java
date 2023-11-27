@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 
 public class AddStudentView extends View {
     @Override
@@ -24,16 +25,22 @@ public class AddStudentView extends View {
         repeatLabel.setTextFill(Color.RED);
 
         Label promptLabel = new Label("请填写必要学生信息");
+        promptLabel.setFont(new Font("Arial",20));
         Label studentNumberLabel = new Label("学号");
+        studentNumberLabel.setFont(new Font("Arial",15));
         TextField studentInfoNumber = new TextField();
         studentInfoNumber.setPromptText("不超过11位");
         Label studentNameLabel = new Label("姓名");
+        studentNameLabel.setFont(new Font("Arial",15));
         TextField studentInfoName = new TextField();
         studentInfoName.setPromptText("不超过5个字");
         Label stduentSexLabel = new Label("性别");
+        stduentSexLabel.setFont(new Font("Arial",15));
         Label studentAgeLabel = new Label("年龄");
+        studentAgeLabel.setFont(new Font("Arial",15));
         TextField studentInfoAge = new TextField();
         Label studentClassLabel = new Label("班级");
+        studentClassLabel.setFont(new Font("Arial",15));
         TextField studentInfoClass = new TextField();
         studentInfoClass.setPromptText("计科21-2BJ");
         Button addStudentInfoButton = new Button("添加");
@@ -60,6 +67,7 @@ public class AddStudentView extends View {
         gridPane.add(studentClassLabel, 1, 5);
         gridPane.add(studentInfoClass, 2, 5);
         gridPane.add(addStudentInfoButton, 1, 6);
+        GridPane.setConstraints(promptLabel,1,0,2,1);
         GridPane.setConstraints(addStudentInfoButton, 1, 6, 2, 1);
 
         gridPane.setAlignment(Pos.CENTER);
