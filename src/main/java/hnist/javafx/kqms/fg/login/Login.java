@@ -4,6 +4,7 @@ import hnist.javafx.kqms.KqmsApplication;
 import hnist.javafx.kqms.bg.controller.ManagerController;
 import hnist.javafx.kqms.fg.main.MainView;
 import hnist.javafx.kqms.fg.main.View;
+import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -37,7 +38,8 @@ public class Login extends View {
 
     private static final String[] IMAGE_URLS = {
             "/image/login.jpg",
-            "/image/bg.jpg"
+            "/image/login2.jpg",
+            "/image/login3.jpg"
     };
     private int currentImageIndex = 0;
 
@@ -62,12 +64,22 @@ public class Login extends View {
         imageView.setFitHeight(350);
         imageView.setFitWidth(600);
 
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(3), event -> {
             currentImageIndex = (currentImageIndex + 1) % IMAGE_URLS.length;
             imageView.setImage(new Image(getClass().getResourceAsStream(IMAGE_URLS[currentImageIndex])));
+
+            // 创建FadeTransition对象
+            FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), imageView);
+            fadeTransition.setFromValue(0);
+            fadeTransition.setToValue(1);
+
+            // 设置淡入淡出效果
+            fadeTransition.play();
         }));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
+
 
         return imageView;
     }
