@@ -21,28 +21,28 @@ public class AddStudentView extends View {
     @Override
     public Pane initView() {
         Label successLabel = new Label("添加成功！");
-        successLabel.setFont(new Font("Arial",15));
+        successLabel.setFont(new Font("Arial", 15));
         Label repeatLabel = new Label("学号重复！");
-        repeatLabel.setFont(new Font("Arial",15));
+        repeatLabel.setFont(new Font("Arial", 15));
         repeatLabel.setTextFill(Color.RED);
 
         Label promptLabel = new Label("请填写必要学生信息");
-        promptLabel.setFont(new Font("Arial",20));
+        promptLabel.setFont(new Font("Arial", 20));
         Label studentNumberLabel = new Label("学号");
-        studentNumberLabel.setFont(new Font("Arial",15));
+        studentNumberLabel.setFont(new Font("Arial", 15));
         TextField studentInfoNumber = new TextField();
         studentInfoNumber.setPromptText("不超过11位");
         Label studentNameLabel = new Label("姓名");
-        studentNameLabel.setFont(new Font("Arial",15));
+        studentNameLabel.setFont(new Font("Arial", 15));
         TextField studentInfoName = new TextField();
         studentInfoName.setPromptText("不超过5个字");
         Label stduentSexLabel = new Label("性别");
-        stduentSexLabel.setFont(new Font("Arial",15));
+        stduentSexLabel.setFont(new Font("Arial", 15));
         Label studentAgeLabel = new Label("年龄");
-        studentAgeLabel.setFont(new Font("Arial",15));
+        studentAgeLabel.setFont(new Font("Arial", 15));
         TextField studentInfoAge = new TextField();
         Label studentClassLabel = new Label("班级");
-        studentClassLabel.setFont(new Font("Arial",15));
+        studentClassLabel.setFont(new Font("Arial", 15));
         TextField studentInfoClass = new TextField();
         studentInfoClass.setPromptText("计科21-2BJ");
         Button addStudentInfoButton = new Button("添加");
@@ -69,7 +69,7 @@ public class AddStudentView extends View {
         gridPane.add(studentClassLabel, 1, 5);
         gridPane.add(studentInfoClass, 2, 5);
         gridPane.add(addStudentInfoButton, 1, 6);
-        GridPane.setConstraints(promptLabel,1,0,2,1);
+        GridPane.setConstraints(promptLabel, 1, 0, 2, 1);
         GridPane.setConstraints(addStudentInfoButton, 1, 6, 2, 1);
 
         gridPane.setAlignment(Pos.CENTER);
@@ -77,23 +77,23 @@ public class AddStudentView extends View {
 
         //提取输入框中的学生信息
         addStudentInfoButton.setOnAction(e -> {
-            removeLabelFromGridPane(gridPane,successLabel);
-            removeLabelFromGridPane(gridPane,repeatLabel);
+            removeLabelFromGridPane(gridPane, successLabel);
+            removeLabelFromGridPane(gridPane, repeatLabel);
 
             //与数据库中的学号进行对比
             if (StudentController.getStudentIfExist(studentInfoNumber.getText())) {
                 //不重复则填入数据库
                 StudentController.addStudent(new Student(studentInfoNumber.getText(), studentInfoName.getText(),
-                                                            comboBox.getValue(), Short.parseShort(studentInfoAge.getText()),
-                                                                studentInfoClass.getText()));
+                        comboBox.getValue(), Byte.parseByte(studentInfoAge.getText()),
+                        studentInfoClass.getText()));
 
                 gridPane.add(successLabel, 2, 7);
-                GridPane.setConstraints(successLabel,2,7,2,1);
+                GridPane.setConstraints(successLabel, 2, 7, 2, 1);
 
             } else {
                 //学号重复
                 gridPane.add(repeatLabel, 1, 7);
-                GridPane.setConstraints(repeatLabel,1,7,2,1);
+                GridPane.setConstraints(repeatLabel, 1, 7, 2, 1);
 
             }
             comboBox.getSelectionModel().clearSelection();
@@ -105,6 +105,7 @@ public class AddStudentView extends View {
 
         return gridPane;
     }
+
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
         gridPane.getChildren().removeIf(node -> node == labelToRemove);
     }

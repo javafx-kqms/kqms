@@ -35,13 +35,13 @@ public class KqmsApplication extends Application {
     public static String getFilePath() {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(stage);
-        return file.getAbsolutePath();
+        return file == null ? "" : file.getAbsolutePath();
     }
 
     //使用DirectoryChooser打开本地文件夹
     public static String getDirectPath() {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File file = directoryChooser.showDialog(stage);
-        return file.getAbsolutePath();
+        return file == null ? "" : file.getAbsolutePath();
     }
 }

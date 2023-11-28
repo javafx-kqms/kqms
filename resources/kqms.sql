@@ -11,7 +11,7 @@ CREATE TABLE student (
      `no` CHAR(11),
      `name` VARCHAR(5),
      sex ENUM('男', '女'),
-     age SMALLINT,
+     age TINYINT,
      class_name VARCHAR(9)
 );
 

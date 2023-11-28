@@ -174,8 +174,8 @@ public class GetStudentView extends View {
                                     modifyNameTF.getText().isEmpty() ? student.getName() : modifyNameTF.getText();
                             String editSex =
                                     comboBox.getValue() == null ? student.getSex() : comboBox.getValue();
-                            short editAge =
-                                    modifyAgeTF.getText().isEmpty() ? student.getAge() : Short.parseShort(modifyAgeTF.getText());
+                            byte editAge =
+                                    modifyAgeTF.getText().isEmpty() ? student.getAge() : Byte.parseByte(modifyAgeTF.getText());
                             String editClassName =
                                     modifyClassNameTF.getText().isEmpty() ? student.getClassName() : modifyClassNameTF.getText();
 

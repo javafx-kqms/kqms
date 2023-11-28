@@ -96,19 +96,19 @@ public class LoginView extends View {
         Label usernameLabel = getStyledLabel("用户名:");
         Label passwordLabel = getStyledLabel("密码:");
         Label errorLabel = getErrorLabel();
-        TextField usernamefield = getStyledTextField();
+        TextField usernameField = getStyledTextField();
         PasswordField passwordField = getStyledPasswordField();
         Button loginButton = getStyledLoginButton();
 
         inputGroup.add(usernameLabel, 0, 0);
-        inputGroup.add(usernamefield, 1, 0, 5, 1);
+        inputGroup.add(usernameField, 1, 0, 5, 1);
         inputGroup.add(passwordLabel, 0, 1);
         inputGroup.add(passwordField, 1, 1, 5, 1);
         inputGroup.add(loginButton, 0, 2, 6, 1);
         inputGroup.add(errorLabel, 0, 3, 6, 1);
 
         EventHandler<ActionEvent> loginHandler = e -> {
-            String username = usernamefield.getText();
+            String username = usernameField.getText();
             String password = passwordField.getText();
             if (ManagerController.login(username, password)) {
                 KqmsApplication.changeRoot(new MainView().getView());
@@ -119,7 +119,7 @@ public class LoginView extends View {
 
         loginButton.setOnAction(loginHandler);
 
-        usernamefield.setOnKeyReleased(e -> {
+        usernameField.setOnKeyReleased(e -> {
             if (e.getCode() == KeyCode.ENTER)
                 loginHandler.handle(new ActionEvent());
         });

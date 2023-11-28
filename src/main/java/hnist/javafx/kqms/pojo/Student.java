@@ -10,13 +10,13 @@ public class Student {
     @ExcelProperty("性别")
     private String sex;
     @ExcelProperty("年龄")
-    private short age;
+    private byte age;
     @ExcelProperty("班级")
     private String className;
 
     public Student(){}
 
-    public Student(String no, String name, String sex, short age , String className){
+    public Student(String no, String name, String sex, byte age , String className){
         this.no = no;
         this.name = name;
         this.sex = sex;
@@ -57,11 +57,11 @@ public class Student {
         this.sex = sex;
     }
 
-    public short getAge() {
+    public byte getAge() {
         return age;
     }
 
-    public void setAge(short age) {
+    public void setAge(byte age) {
         this.age = age;
     }
 
