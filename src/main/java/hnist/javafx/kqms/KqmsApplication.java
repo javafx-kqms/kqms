@@ -1,18 +1,13 @@
 package hnist.javafx.kqms;
 
-import hnist.javafx.kqms.fg.login.Login;
+import hnist.javafx.kqms.fg.login.LoginView;
 import hnist.javafx.kqms.fg.main.MainView;
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.File;
 
@@ -24,8 +19,8 @@ public class KqmsApplication extends Application {
     @Override
     public void start(Stage stage) {
         KqmsApplication.stage = stage;
-        scene = new Scene(new Login().getView(), 1000, 600);
-        // scene = new Scene(new MainView().getView(), 1000, 600);
+        scene = new Scene(new LoginView().getView(), 1000, 600);
+         scene = new Scene(new MainView().getView(), 1000, 600);
 
         stage.setScene(scene);
         stage.setTitle("学生考勤管理系统");

@@ -39,5 +39,6 @@
                 and student_name = #{studentName}
             </if>
         </where>
+        order by `date`, section asc
     </select>
 </mapper>

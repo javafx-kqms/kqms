@@ -22,9 +22,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
-import java.util.concurrent.Flow;
-
-public class Login extends View {
+public class LoginView extends View {
 
     @Override
     public String getName() {

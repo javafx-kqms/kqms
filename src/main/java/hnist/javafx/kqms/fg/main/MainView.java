@@ -7,15 +7,11 @@ import hnist.javafx.kqms.fg.main.kaoqin.GetAbsentView;
 import hnist.javafx.kqms.fg.main.student.AddStudentView;
 import hnist.javafx.kqms.fg.main.student.GetStudentView;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
@@ -26,6 +22,8 @@ public class MainView extends View {
     private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new GetAbsentView(),new AddKaoqinView(),new FileOperationView()};
 
     private final Pane routerView = getRouterView();
+
+    private Node lastButton;
 
     @Override
     public String getName() {
@@ -50,21 +48,29 @@ public class MainView extends View {
         HBox navbar = new HBox();
         navbar.setStyle("-fx-background-color: #333333; -fx-alignment: center-left;");
 
-        routerView.getChildren().add(views[0].getView());
+        String css = "-fx-background-color: transparent; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-text-fill: ";
         for (View view : views) {
             Button button = new Button(view.getName());
-            button.setStyle("-fx-background-color: transparent; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;");
+            button.setStyle(css + "white;");
 
             button.setOnAction((e) -> {
                 ObservableList<Node> children = routerView.getChildren();
                 if (children.get(0) != view.getView()) {
                     children.remove(0);
                     children.add(view.getView());
+
+                    lastButton.setStyle(css + "white;");
+                    button.setStyle(css + "aqua;");
+                    lastButton = button;
                 }
             });
 
             navbar.getChildren().add(button);
         }
+
+        routerView.getChildren().add(views[0].getView());
+        lastButton = navbar.getChildren().get(0);
+        lastButton.setStyle(css + "aqua;");
 
         navbar.getChildren().add(getClock());
 
