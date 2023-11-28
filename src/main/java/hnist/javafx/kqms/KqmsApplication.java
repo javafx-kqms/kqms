@@ -20,7 +20,7 @@ public class KqmsApplication extends Application {
     public void start(Stage stage) {
         KqmsApplication.stage = stage;
         scene = new Scene(new LoginView().getView(), 1000, 600);
-        scene = new Scene(new MainView().getView(), 1000, 600);
+        //scene = new Scene(new MainView().getView(), 1000, 600);
 
         stage.setScene(scene);
         stage.setTitle("学生考勤管理系统");
