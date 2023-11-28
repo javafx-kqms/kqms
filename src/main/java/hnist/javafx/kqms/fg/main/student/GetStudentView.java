@@ -70,11 +70,11 @@ public class GetStudentView extends View {
         classNameColumn.setCellValueFactory(new PropertyValueFactory<>("className"));
         studentIfo.getColumns().addAll(numberColumn,nameColumn,sexColumn,ageColumn,classNameColumn);
 
-        nameColumn.setPrefWidth(100);
-        numberColumn.setPrefWidth(100);
-        sexColumn.setPrefWidth(100);
-        ageColumn.setPrefWidth(100);
-        classNameColumn.setPrefWidth(100);
+        nameColumn.setPrefWidth(110);
+        numberColumn.setPrefWidth(110);
+        sexColumn.setPrefWidth(110);
+        ageColumn.setPrefWidth(110);
+        classNameColumn.setPrefWidth(110);
 
         gridPane.add(studentIfo,0,3);
         GridPane.setConstraints(studentIfo,0,3,5,1);

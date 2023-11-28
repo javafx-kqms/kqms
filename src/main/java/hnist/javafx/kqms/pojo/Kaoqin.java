@@ -34,7 +34,7 @@ public class Kaoqin {
         return "学号：" + studentNo +
                 "   姓名：" +  studentName +
                 "   缺课日期：" +date +
-                "   课程名称：'" + courseName +
+                "   课程名称：" + courseName +
                 "   缺课节次：" + section +
                 "   缺课类型" + type;
     }

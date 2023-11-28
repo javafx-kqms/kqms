@@ -21,7 +21,9 @@ public class AddStudentView extends View {
     @Override
     public Pane initView() {
         Label successLabel = new Label("添加成功！");
+        successLabel.setFont(new Font("Arial",15));
         Label repeatLabel = new Label("学号重复！");
+        repeatLabel.setFont(new Font("Arial",15));
         repeatLabel.setTextFill(Color.RED);
 
         Label promptLabel = new Label("请填写必要学生信息");
@@ -86,10 +88,12 @@ public class AddStudentView extends View {
                                                                 studentInfoClass.getText()));
 
                 gridPane.add(successLabel, 2, 7);
+                GridPane.setConstraints(successLabel,2,7,2,1);
 
             } else {
                 //学号重复
                 gridPane.add(repeatLabel, 1, 7);
+                GridPane.setConstraints(repeatLabel,1,7,2,1);
 
             }
             comboBox.getSelectionModel().clearSelection();

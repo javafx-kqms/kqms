@@ -28,7 +28,9 @@ public class AddKaoqinView extends View {
     @Override
     protected Pane initView() {
         Label confirmLabel = new Label("添加成功！");
+        confirmLabel.setFont(new Font("Arial",15));
         Label confirmLabel2 = new Label("缺课信息重复！");
+        confirmLabel2.setFont(new Font("Arial",15));
         confirmLabel2.setTextFill(Color.RED);
 
 
@@ -92,11 +94,13 @@ public class AddKaoqinView extends View {
                             studentNameTF.getText(), studentNoTF.getText()));
 
                     gridPane.add(confirmLabel, 2, 8);
+                    GridPane.setConstraints(confirmLabel,2,8,2,1);
                     System.out.println("学生信息" + new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
                             Byte.parseByte(courseSectionTF.getText()), comboBox.getValue(),
                             studentNameTF.getText(), studentNoTF.getText()));
                 } else {
                     gridPane.add(confirmLabel2, 1, 8);
+                    GridPane.setConstraints(confirmLabel2,1,8,2,1);
                 }
             } catch (ParseException ex) {
                 throw new RuntimeException(ex);
