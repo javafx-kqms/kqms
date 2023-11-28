@@ -15,7 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.control.TableColumn;
 import javafx.scene.text.Font;
 import javafx.stage.Modality;
-import javafx.util.converter.ShortStringConverter;
+import javafx.util.converter.ByteStringConverter;
 
 
 import java.util.Optional;
@@ -56,7 +56,7 @@ public class GetStudentView extends View {
         TableColumn<Student, String> numberColumn = new TableColumn<>("学号");
         TableColumn<Student, String> nameColumn = new TableColumn<>("姓名");
         TableColumn<Student, String> sexColumn = new TableColumn<>("性别");
-        TableColumn<Student, Short> ageColumn = new TableColumn<>("年龄");
+        TableColumn<Student, Byte> ageColumn = new TableColumn<>("年龄");
         TableColumn<Student, String> classNameColumn = new TableColumn<>("班级");
         numberColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("no"));
@@ -64,7 +64,7 @@ public class GetStudentView extends View {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         sexColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         sexColumn.setCellValueFactory(new PropertyValueFactory<>("sex"));
-        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new ShortStringConverter()));
+        ageColumn.setCellFactory(TextFieldTableCell.forTableColumn(new ByteStringConverter()));
         ageColumn.setCellValueFactory(new PropertyValueFactory<>("age"));
         classNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         classNameColumn.setCellValueFactory(new PropertyValueFactory<>("className"));
