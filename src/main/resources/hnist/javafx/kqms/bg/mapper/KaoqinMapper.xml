@@ -17,9 +17,9 @@
     </insert>
 
 <!--    void deleteKaoqin(Kaoqin kaoqin);-->
-    <delete id="deleteKaoqin">
+    <delete id="deleteKaoqin" >
         delete from kaoqin
-        where date = #{date} and section = #{section} and studentNo = #{studentNo}
+        where date = #{date} and section = #{section} and student_no = #{studentNo}
     </delete>
 
 <!--    boolean getKaoqinIfExist(Date date, byte section, String studentNo);-->

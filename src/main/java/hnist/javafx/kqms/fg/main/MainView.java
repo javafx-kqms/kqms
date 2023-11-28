@@ -3,7 +3,7 @@ package hnist.javafx.kqms.fg.main;
 import hnist.javafx.kqms.fg.main.file_operation.FileOperationView;
 import hnist.javafx.kqms.fg.main.hello.HelloView;
 import hnist.javafx.kqms.fg.main.kaoqin.AddKaoqinView;
-import hnist.javafx.kqms.fg.main.kaoqin.GetAbsentView;
+import hnist.javafx.kqms.fg.main.kaoqin.GetKaoqinView;
 import hnist.javafx.kqms.fg.main.student.AddStudentView;
 import hnist.javafx.kqms.fg.main.student.GetStudentView;
 import javafx.animation.KeyFrame;
@@ -19,7 +19,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 public class MainView extends View {
-    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new GetAbsentView(),new AddKaoqinView(),new FileOperationView()};
+    private final View[] views = {new HelloView(), new GetStudentView(), new AddStudentView(),new GetKaoqinView(),new AddKaoqinView(),new FileOperationView()};
 
     private final Pane routerView = getRouterView();
 

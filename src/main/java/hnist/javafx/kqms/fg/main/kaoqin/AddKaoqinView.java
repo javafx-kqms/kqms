@@ -15,9 +15,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class AddKaoqinView extends View {
     @Override
@@ -95,9 +95,6 @@ public class AddKaoqinView extends View {
 
                     gridPane.add(confirmLabel, 2, 8);
                     GridPane.setConstraints(confirmLabel,2,8,2,1);
-                    System.out.println("学生信息" + new Kaoqin(getStringToData(absentDateTF.getText()), courseNameTF.getText(),
-                            Byte.parseByte(courseSectionTF.getText()), comboBox.getValue(),
-                            studentNameTF.getText(), studentNoTF.getText()));
                 } else {
                     gridPane.add(confirmLabel2, 1, 8);
                     GridPane.setConstraints(confirmLabel2,1,8,2,1);
@@ -119,7 +116,7 @@ public class AddKaoqinView extends View {
 
     public Date getStringToData(String str) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return sdf.parse(str);
+        return (Date) sdf.parse(str);
     }
 
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {
