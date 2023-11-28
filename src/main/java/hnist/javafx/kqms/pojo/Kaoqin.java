@@ -18,7 +18,7 @@ public class Kaoqin {
     @ExcelProperty("学号")
     private String studentNo;
 
-    public Kaoqin(){}
+    public Kaoqin() {}
 
     public Kaoqin(Date date, String courseName, byte section, String type, String studentName, String studentNo) {
         this.date = date;
@@ -32,8 +32,8 @@ public class Kaoqin {
     @Override
     public String toString() {
         return "学号：" + studentNo +
-                "   姓名：" +  studentName +
-                "   缺课日期：" +date +
+                "   姓名：" + studentName +
+                "   缺课日期：" + date +
                 "   课程名称：" + courseName +
                 "   缺课节次：" + section +
                 "   缺课类型" + type;
