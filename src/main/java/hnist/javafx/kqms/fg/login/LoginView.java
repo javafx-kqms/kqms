@@ -42,7 +42,7 @@ public class LoginView extends View {
     private int currentImageIndex = 0;
 
     private VBox getRoot() {
-        Text title = new Text("管理系统");
+        Text title = new Text("学生考勤管理系统");
         title.setStyle("-fx-font-size: 30;");
 
         VBox root = new VBox(title, getMain());
