@@ -3,12 +3,12 @@ CREATE DATABASE kqms;
 USE kqms;
 
 CREATE TABLE manager (
-     username VARCHAR(15),
+     username VARCHAR(15) PRIMARY KEY,
      `password` VARCHAR(20)
 );
 
 CREATE TABLE student (
-     `no` CHAR(11),
+     `no` CHAR(11) PRIMARY KEY,
      `name` VARCHAR(5),
      sex ENUM('男', '女'),
      age TINYINT,
@@ -21,5 +21,6 @@ CREATE TABLE kaoqin (
     section TINYINT,
     `type` ENUM('迟到', '早退', '请假', '旷课'),
     student_name VARCHAR(5),
-    student_no CHAR(11)
+    student_no CHAR(11),
+    PRIMARY KEY (`date`, section, student_no)
 );
