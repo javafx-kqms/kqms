@@ -31,11 +31,11 @@ public class FileOperationView extends View {
     protected Pane initView() {
 
         Button importStudentInfoButton = new Button("导入学生信息");
-        Button importAbsentInfoButton = new Button("导入缺课信息");
+        Button importAbsentInfoButton = new Button("导入考勤信息");
         Button importStudentInfoFileButton = new Button("浏览");
         Button importAbsentInfoFileButton = new Button("浏览");
         Button exportStudentInfoButton = new Button("导出学生信息");
-        Button exportAbsentInfoButton = new Button("导出缺课信息");
+        Button exportAbsentInfoButton = new Button("导出考勤信息");
         Button exportStudentInfoFileButton = new Button("浏览");
         Button exportAbsentInfoFileButton = new Button("浏览");
 

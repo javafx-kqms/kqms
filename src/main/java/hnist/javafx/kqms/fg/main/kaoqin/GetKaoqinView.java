@@ -35,7 +35,7 @@ public class GetKaoqinView extends View {
         studentNameLabel.setFont(new Font("Arial", 15));
         TextField studentNameTF = new TextField();
         Button searchButton = new Button("搜索");
-        Label label = new Label("若没有填入搜索信息则显示全部缺课信息");
+        Label label = new Label("若没有填入搜索信息则显示全部考勤信息");
         label.setFont(new Font("Arial", 15));
         Label unfindLabel = new Label("该缺课信息不存在！");
         unfindLabel.setTextFill(Color.RED);
