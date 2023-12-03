@@ -19,13 +19,13 @@
 <!--    void deleteKaoqin(Kaoqin kaoqin);-->
     <delete id="deleteKaoqin" >
         delete from kaoqin
-        where date = #{date} and section = #{section} and student_no = #{studentNo}
+        where date = #{date, jdbcType=DATE} and section = #{section} and student_no = #{studentNo}
     </delete>
 
 <!--    boolean getKaoqinIfExist(Date date, byte section, String studentNo);-->
     <select id="getKaoqinIfExist" resultType="boolean">
         select COUNT(*) = 0 from kaoqin
-        where date = #{date} and section = #{section} and student_no = #{studentNo}
+        where date = #{date, jdbcType=DATE} and section = #{section} and student_no = #{studentNo}
     </select>
 
 <!--    List<Kaoqin> getKaoqin(String courseName, String studentName);-->

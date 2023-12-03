@@ -15,7 +15,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -116,7 +116,7 @@ public class AddKaoqinView extends View {
 
     public Date getStringToData(String str) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        return (Date) sdf.parse(str);
+        return sdf.parse(str);
     }
 
     private void removeLabelFromGridPane(GridPane gridPane, Label labelToRemove) {

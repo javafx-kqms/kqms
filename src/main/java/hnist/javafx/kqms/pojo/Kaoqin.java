@@ -2,7 +2,7 @@ package hnist.javafx.kqms.pojo;
 
 import com.alibaba.excel.annotation.ExcelProperty;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Kaoqin {
     @ExcelProperty("缺课日期")
@@ -18,9 +18,10 @@ public class Kaoqin {
     @ExcelProperty("学号")
     private String studentNo;
 
-    public Kaoqin() {}
+    public Kaoqin() {
+    }
 
-    public Kaoqin(java.sql.Date date, String courseName, byte section, String type, String studentName, String studentNo) {
+    public Kaoqin(Date date, String courseName, byte section, String type, String studentName, String studentNo) {
         this.date = date;
         this.courseName = courseName;
         this.section = section;
@@ -43,7 +44,7 @@ public class Kaoqin {
         return date;
     }
 
-    public void setDate(java.sql.Date date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
